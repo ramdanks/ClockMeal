@@ -1,0 +1,842 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="T2Q-KJ-m2h">
+    <device id="retina6_0" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Home-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController title="Home" id="BYZ-38-t0r" customClass="HomeViewController" customModule="ClockMeal" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yDg-Yg-hPe">
+                                <rect key="frame" x="0.0" y="0.0" width="390" height="490"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="morning" translatesAutoresizingMaskIntoConstraints="NO" id="UKc-xE-xgt">
+                                        <rect key="frame" x="0.0" y="0.0" width="390" height="490"/>
+                                    </imageView>
+                                    <view alpha="0.84999999999999998" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IlU-wO-ral" customClass="Gradient" customModule="ClockMeal" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="390" height="490"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="startColor">
+                                                <color key="value" red="0.0" green="0.0" blue="0.0" alpha="0.70264039003759393" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="endColor">
+                                                <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="startLocation">
+                                                <real key="value" value="0.0"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="endLocation">
+                                                <real key="value" value="1"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="horizontalMode" value="NO"/>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="diagonalMode" value="NO"/>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="01:42" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S6e-Sm-VlF">
+                                        <rect key="frame" x="107.33333333333333" y="196.66666666666666" width="175.33333333333337" height="85.999999999999972"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="72"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Will be going in:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RYQ-or-TzG">
+                                        <rect key="frame" x="131.33333333333334" y="171" width="127.33333333333334" height="21.666666666666657"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Breakfast" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tEn-wV-gud">
+                                        <rect key="frame" x="122.66666666666669" y="76" width="145" height="43"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="36"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KGu-d4-gyQ">
+                                        <rect key="frame" x="100" y="394" width="190" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="rCI-hO-Ktw"/>
+                                        </constraints>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="gray" title="Skip This Meal">
+                                            <color key="baseBackgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </buttonConfiguration>
+                                        <connections>
+                                            <action selector="onSkipMealButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="e4U-rB-g4p"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kTx-q1-fHJ">
+                                        <rect key="frame" x="100" y="346" width="190" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="ooN-fg-MRw"/>
+                                        </constraints>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="filled" title="Taking a Meal"/>
+                                        <connections>
+                                            <action selector="onTakingMealButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="X55-ZC-hva"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="KGu-d4-gyQ" secondAttribute="bottom" constant="56" id="1am-mB-3bb"/>
+                                    <constraint firstItem="tEn-wV-gud" firstAttribute="top" secondItem="yDg-Yg-hPe" secondAttribute="top" constant="76" id="5T5-wL-hEv"/>
+                                    <constraint firstItem="S6e-Sm-VlF" firstAttribute="centerX" secondItem="yDg-Yg-hPe" secondAttribute="centerX" id="5qm-Dl-5Du"/>
+                                    <constraint firstItem="kTx-q1-fHJ" firstAttribute="centerX" secondItem="yDg-Yg-hPe" secondAttribute="centerX" id="9kr-1K-WAZ"/>
+                                    <constraint firstAttribute="bottom" secondItem="IlU-wO-ral" secondAttribute="bottom" id="FA0-Ym-EO0"/>
+                                    <constraint firstItem="tEn-wV-gud" firstAttribute="centerX" secondItem="yDg-Yg-hPe" secondAttribute="centerX" id="MwJ-iU-1Pi"/>
+                                    <constraint firstItem="kTx-q1-fHJ" firstAttribute="leading" secondItem="yDg-Yg-hPe" secondAttribute="leading" constant="100" id="NNW-eo-57N"/>
+                                    <constraint firstItem="S6e-Sm-VlF" firstAttribute="top" secondItem="RYQ-or-TzG" secondAttribute="bottom" constant="4" id="Oac-fc-yH0"/>
+                                    <constraint firstItem="IlU-wO-ral" firstAttribute="top" secondItem="yDg-Yg-hPe" secondAttribute="top" id="P68-i8-cTb"/>
+                                    <constraint firstAttribute="trailing" secondItem="IlU-wO-ral" secondAttribute="trailing" id="Q13-Yc-hIz"/>
+                                    <constraint firstItem="UKc-xE-xgt" firstAttribute="leading" secondItem="yDg-Yg-hPe" secondAttribute="leading" id="TVN-B7-YEY"/>
+                                    <constraint firstItem="UKc-xE-xgt" firstAttribute="top" secondItem="yDg-Yg-hPe" secondAttribute="top" id="U2q-L3-fAW"/>
+                                    <constraint firstAttribute="height" constant="490" id="VuS-0o-44w"/>
+                                    <constraint firstAttribute="trailing" secondItem="kTx-q1-fHJ" secondAttribute="trailing" constant="100" id="YN8-oW-m0E"/>
+                                    <constraint firstItem="RYQ-or-TzG" firstAttribute="top" secondItem="tEn-wV-gud" secondAttribute="bottom" constant="52" id="Z0b-mr-KyR"/>
+                                    <constraint firstItem="IlU-wO-ral" firstAttribute="leading" secondItem="yDg-Yg-hPe" secondAttribute="leading" id="bC5-EE-NT8"/>
+                                    <constraint firstItem="KGu-d4-gyQ" firstAttribute="centerX" secondItem="yDg-Yg-hPe" secondAttribute="centerX" id="cXc-cA-jqz"/>
+                                    <constraint firstAttribute="trailing" secondItem="KGu-d4-gyQ" secondAttribute="trailing" constant="100" id="j1w-Mj-EkO"/>
+                                    <constraint firstItem="RYQ-or-TzG" firstAttribute="centerX" secondItem="yDg-Yg-hPe" secondAttribute="centerX" id="oPV-Qy-ZxR"/>
+                                    <constraint firstItem="KGu-d4-gyQ" firstAttribute="top" secondItem="kTx-q1-fHJ" secondAttribute="bottom" constant="8" id="qQF-mK-9Hu"/>
+                                    <constraint firstItem="KGu-d4-gyQ" firstAttribute="leading" secondItem="yDg-Yg-hPe" secondAttribute="leading" constant="100" id="rfl-iF-0l9"/>
+                                    <constraint firstAttribute="bottom" secondItem="UKc-xE-xgt" secondAttribute="bottom" id="ukQ-sm-tVC"/>
+                                    <constraint firstAttribute="trailing" secondItem="UKc-xE-xgt" secondAttribute="trailing" id="vwB-UR-EJi"/>
+                                </constraints>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Today's Respond" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6LR-81-xkV">
+                                <rect key="frame" x="24" y="528" width="366" height="26"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="21"/>
+                                <color key="textColor" systemColor="systemGrayColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Px8-md-NCq" customClass="RichRowDetailView" customModule="ClockMeal" customModuleProvider="target">
+                                <rect key="frame" x="24" y="570" width="342" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="h0v-cL-lJd"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                                        <integer key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="detail" value="Waiting"/>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="title" value="Breakfast"/>
+                                    <userDefinedRuntimeAttribute type="image" keyPath="logo" value="b.square.fill" catalog="system"/>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HP0-a2-VFZ" customClass="RichRowDetailView" customModule="ClockMeal" customModuleProvider="target">
+                                <rect key="frame" x="24" y="626" width="342" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="NR5-VP-a1O"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                                        <integer key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="detail" value="Waiting"/>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="title" value="Lunch"/>
+                                    <userDefinedRuntimeAttribute type="image" keyPath="logo" value="l.square.fill" catalog="system"/>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bEI-aN-jPO" customClass="RichRowDetailView" customModule="ClockMeal" customModuleProvider="target">
+                                <rect key="frame" x="24" y="682" width="342" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="VJ3-Oj-VMk"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                                        <integer key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="detail" value="Waiting"/>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="title" value="Dinner"/>
+                                    <userDefinedRuntimeAttribute type="image" keyPath="logo" value="d.square.fill" catalog="system"/>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="daj-zH-Rdq" customClass="RichRowControl" customModule="ClockMeal" customModuleProvider="target">
+                                <rect key="frame" x="24" y="468" width="342" height="44"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="gq0-j4-eq6"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                                        <integer key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="detail" value="None"/>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="title" value="Schedule Issue"/>
+                                    <userDefinedRuntimeAttribute type="image" keyPath="logo" value="exclamationmark.triangle.fill" catalog="system"/>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="onScheduleIssue:" destination="BYZ-38-t0r" eventType="touchUpInside" id="I0e-9c-bRR"/>
+                                </connections>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="daj-zH-Rdq" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="24" id="2r6-ZU-kKL"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Px8-md-NCq" secondAttribute="trailing" constant="24" id="5Xi-wJ-qdl"/>
+                            <constraint firstItem="yDg-Yg-hPe" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="80e-O9-92g"/>
+                            <constraint firstItem="6LR-81-xkV" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="24" id="AYi-k3-VO5"/>
+                            <constraint firstItem="Px8-md-NCq" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="24" id="Akw-UT-aHF"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="bEI-aN-jPO" secondAttribute="trailing" constant="24" id="B6h-ul-oyk"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="daj-zH-Rdq" secondAttribute="trailing" constant="24" id="EQs-ae-6FY"/>
+                            <constraint firstItem="Px8-md-NCq" firstAttribute="top" secondItem="6LR-81-xkV" secondAttribute="bottom" constant="16" id="J8j-hW-R9s"/>
+                            <constraint firstItem="bEI-aN-jPO" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="24" id="KLo-1K-8jw"/>
+                            <constraint firstItem="daj-zH-Rdq" firstAttribute="top" secondItem="yDg-Yg-hPe" secondAttribute="bottom" constant="-22" id="KRg-Cy-vtQ"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="6LR-81-xkV" secondAttribute="trailing" id="PdH-vs-DEX"/>
+                            <constraint firstItem="HP0-a2-VFZ" firstAttribute="top" secondItem="Px8-md-NCq" secondAttribute="bottom" constant="12" id="Re3-g9-17Z"/>
+                            <constraint firstItem="6LR-81-xkV" firstAttribute="top" secondItem="daj-zH-Rdq" secondAttribute="bottom" constant="16" id="Rzp-gy-svt"/>
+                            <constraint firstItem="bEI-aN-jPO" firstAttribute="top" secondItem="HP0-a2-VFZ" secondAttribute="bottom" constant="12" id="auB-67-O5a"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="HP0-a2-VFZ" secondAttribute="trailing" constant="24" id="ibI-Ve-aX7"/>
+                            <constraint firstItem="HP0-a2-VFZ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="24" id="pXX-5N-Nht"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="yDg-Yg-hPe" secondAttribute="trailing" id="pm1-Yv-FSi"/>
+                            <constraint firstItem="yDg-Yg-hPe" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="sal-hl-ZXg"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Home" image="house" catalog="system" selectedImage="house.fill" id="2wq-jd-4EJ"/>
+                    <connections>
+                        <outlet property="view" destination="8bC-Xf-vdC" id="Q24-ZW-oMB"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2306.1538461538462" y="-425.11848341232223"/>
+        </scene>
+        <!--Schedule-->
+        <scene sceneID="UwZ-Fy-829">
+            <objects>
+                <viewController title="Schedule" id="guH-3x-roS" customClass="ScheduleViewController" customModule="ClockMeal" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ZzN-VL-jZP">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Schedule" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="loY-V7-Esv">
+                                <rect key="frame" x="24" y="68" width="93" height="26"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="21"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iys-XZ-FQK" userLabel="Breakfast Control" customClass="ScheduleCardControl" customModule="ClockMeal" customModuleProvider="target">
+                                <rect key="frame" x="24" y="110" width="342" height="65"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="65" id="xUp-Wh-SYy"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                                        <integer key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="title" value="Breakfast"/>
+                                    <userDefinedRuntimeAttribute type="image" keyPath="image" value="breakfast"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="indexMealType">
+                                        <integer key="value" value="0"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="onScheduleCardButton:" destination="guH-3x-roS" eventType="touchUpInside" id="VQm-d7-AYb"/>
+                                </connections>
+                            </view>
+                            <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hnK-9F-ovH" userLabel="Lunch Control" customClass="ScheduleCardControl" customModule="ClockMeal" customModuleProvider="target">
+                                <rect key="frame" x="24" y="187" width="342" height="65"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="65" id="a2U-CM-vS9"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                                        <integer key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="title" value="Lunch"/>
+                                    <userDefinedRuntimeAttribute type="image" keyPath="image" value="lunch"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="indexMealType">
+                                        <integer key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="onScheduleCardButton:" destination="guH-3x-roS" eventType="touchUpInside" id="vtD-WH-O5l"/>
+                                </connections>
+                            </view>
+                            <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MSB-h3-KkH" userLabel="Dinner Control" customClass="ScheduleCardControl" customModule="ClockMeal" customModuleProvider="target">
+                                <rect key="frame" x="24" y="264" width="342" height="65"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="65" id="5Ob-N7-1hn"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                                        <integer key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="title" value="Dinner"/>
+                                    <userDefinedRuntimeAttribute type="image" keyPath="image" value="dinner"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="indexMealType">
+                                        <integer key="value" value="2"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="onScheduleCardButton:" destination="guH-3x-roS" eventType="touchUpInside" id="JJA-W6-fPs"/>
+                                </connections>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lnm-y5-qiv">
+                                <rect key="frame" x="24" y="345" width="366" height="2"/>
+                                <color key="backgroundColor" systemColor="systemGray4Color"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="2" id="hwj-mF-QEH"/>
+                                </constraints>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Template Schedule" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Odu-Bj-iaL">
+                                <rect key="frame" x="24" y="355" width="188" height="26"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="21"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Eaf-MX-BKr">
+                                <rect key="frame" x="24" y="397" width="342" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="hrt-5M-Z48"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Repeat on Previous Least Issue"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qHl-AJ-gp8">
+                                <rect key="frame" x="24" y="449" width="342" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="40" id="CCh-p2-YZ4"/>
+                                    <constraint firstAttribute="height" constant="40" id="cpf-KK-Uwu"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Repeat Previous Day"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A35-WU-CEd">
+                                <rect key="frame" x="24" y="501" width="342" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="8Y1-je-9Pc"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="40" id="JND-cd-jqL"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Revert to System Default"/>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="QSm-h2-qQ0"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="lnm-y5-qiv" firstAttribute="leading" secondItem="ZzN-VL-jZP" secondAttribute="leading" constant="24" id="0s6-i6-weS"/>
+                            <constraint firstItem="hnK-9F-ovH" firstAttribute="leading" secondItem="ZzN-VL-jZP" secondAttribute="leading" constant="24" id="8y8-Or-ZAo"/>
+                            <constraint firstAttribute="trailing" secondItem="iys-XZ-FQK" secondAttribute="trailing" constant="24" id="Bbv-76-VgR"/>
+                            <constraint firstAttribute="trailing" secondItem="hnK-9F-ovH" secondAttribute="trailing" constant="24" id="DGk-OF-2Uc"/>
+                            <constraint firstAttribute="trailing" secondItem="MSB-h3-KkH" secondAttribute="trailing" constant="24" id="E5r-5i-AHC"/>
+                            <constraint firstItem="Eaf-MX-BKr" firstAttribute="leading" secondItem="ZzN-VL-jZP" secondAttribute="leading" constant="24" id="Hfc-UB-hHN"/>
+                            <constraint firstItem="hnK-9F-ovH" firstAttribute="top" secondItem="iys-XZ-FQK" secondAttribute="bottom" constant="12" id="JZI-wf-POe"/>
+                            <constraint firstAttribute="trailing" secondItem="qHl-AJ-gp8" secondAttribute="trailing" constant="24" id="LZb-Ld-cPe"/>
+                            <constraint firstItem="loY-V7-Esv" firstAttribute="top" secondItem="QSm-h2-qQ0" secondAttribute="top" constant="24" id="Nf3-4T-AdN"/>
+                            <constraint firstItem="loY-V7-Esv" firstAttribute="leading" secondItem="ZzN-VL-jZP" secondAttribute="leading" constant="24" id="SEm-XN-W7S"/>
+                            <constraint firstItem="lnm-y5-qiv" firstAttribute="top" secondItem="MSB-h3-KkH" secondAttribute="bottom" constant="16" id="T4f-c0-SJD"/>
+                            <constraint firstItem="MSB-h3-KkH" firstAttribute="leading" secondItem="ZzN-VL-jZP" secondAttribute="leading" constant="24" id="W8C-mi-CHR"/>
+                            <constraint firstAttribute="trailing" secondItem="A35-WU-CEd" secondAttribute="trailing" constant="24" id="Y6y-nm-2Vq"/>
+                            <constraint firstAttribute="trailing" secondItem="lnm-y5-qiv" secondAttribute="trailing" id="Yl3-Yu-qe5"/>
+                            <constraint firstItem="qHl-AJ-gp8" firstAttribute="leading" secondItem="ZzN-VL-jZP" secondAttribute="leading" constant="24" id="dFv-Oi-xV4"/>
+                            <constraint firstItem="qHl-AJ-gp8" firstAttribute="top" secondItem="Eaf-MX-BKr" secondAttribute="bottom" constant="12" id="dP9-Ve-4J2"/>
+                            <constraint firstItem="iys-XZ-FQK" firstAttribute="leading" secondItem="ZzN-VL-jZP" secondAttribute="leading" constant="24" id="fz1-ed-64Z"/>
+                            <constraint firstItem="A35-WU-CEd" firstAttribute="top" secondItem="qHl-AJ-gp8" secondAttribute="bottom" constant="12" id="gqJ-JT-qIB"/>
+                            <constraint firstItem="A35-WU-CEd" firstAttribute="leading" secondItem="ZzN-VL-jZP" secondAttribute="leading" constant="24" id="hAH-2c-46t"/>
+                            <constraint firstAttribute="trailing" secondItem="Eaf-MX-BKr" secondAttribute="trailing" constant="24" id="hWW-u4-BfN"/>
+                            <constraint firstItem="Odu-Bj-iaL" firstAttribute="leading" secondItem="ZzN-VL-jZP" secondAttribute="leading" constant="24" id="hWd-ef-O7e"/>
+                            <constraint firstItem="iys-XZ-FQK" firstAttribute="top" secondItem="loY-V7-Esv" secondAttribute="bottom" constant="16" id="ix4-c4-zpn"/>
+                            <constraint firstItem="Eaf-MX-BKr" firstAttribute="top" secondItem="Odu-Bj-iaL" secondAttribute="bottom" constant="16" id="kLy-Ii-KxF"/>
+                            <constraint firstItem="MSB-h3-KkH" firstAttribute="top" secondItem="hnK-9F-ovH" secondAttribute="bottom" constant="12" id="oRU-Zf-jYC"/>
+                            <constraint firstItem="Odu-Bj-iaL" firstAttribute="top" secondItem="lnm-y5-qiv" secondAttribute="bottom" constant="8" id="t0j-if-NXh"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Schedule" image="clock" catalog="system" selectedImage="clock.fill" id="OqI-9x-0pc"/>
+                    <connections>
+                        <segue destination="3dg-dA-C3A" kind="show" identifier="mealDetailSegue" id="NPr-8U-Cal"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1hb-Dt-rTS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-658" y="-425"/>
+        </scene>
+        <!--Meal Detail-->
+        <scene sceneID="RoG-0g-Ytl">
+            <objects>
+                <viewController title="Meal Detail" id="3dg-dA-C3A" customClass="MealDetailViewController" customModule="ClockMeal" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="frP-EG-a9p">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="790"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gLp-Rj-4eZ">
+                                <rect key="frame" x="0.0" y="82" width="390" height="260"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="lunch" translatesAutoresizingMaskIntoConstraints="NO" id="sHM-Hy-H2u">
+                                        <rect key="frame" x="0.0" y="0.0" width="390" height="260"/>
+                                    </imageView>
+                                    <view alpha="0.84999999999999998" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XCZ-ly-9yO" customClass="Gradient" customModule="ClockMeal" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="390" height="260"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="startColor">
+                                                <color key="value" red="0.0" green="0.0" blue="0.0" alpha="0.59605556860902253" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="endColor">
+                                                <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="startLocation">
+                                                <real key="value" value="0.0"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="endLocation">
+                                                <real key="value" value="1"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lunch" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sfo-6B-NC7">
+                                        <rect key="frame" x="24" y="24" width="366" height="43"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="36"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent nec malesuada dui. Quisque condimentum" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="POl-VQ-szf">
+                                        <rect key="frame" x="32" y="170.66666666666666" width="326" height="57.333333333333343"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="XCZ-ly-9yO" firstAttribute="leading" secondItem="gLp-Rj-4eZ" secondAttribute="leading" id="49b-08-tkR"/>
+                                    <constraint firstAttribute="trailing" secondItem="XCZ-ly-9yO" secondAttribute="trailing" id="76k-5c-Gag"/>
+                                    <constraint firstAttribute="bottom" secondItem="POl-VQ-szf" secondAttribute="bottom" constant="32" id="8Rs-sO-77t"/>
+                                    <constraint firstAttribute="trailing" secondItem="POl-VQ-szf" secondAttribute="trailing" constant="32" id="HRQ-u9-x32"/>
+                                    <constraint firstItem="sHM-Hy-H2u" firstAttribute="leading" secondItem="gLp-Rj-4eZ" secondAttribute="leading" id="IyP-hC-qId"/>
+                                    <constraint firstItem="Sfo-6B-NC7" firstAttribute="leading" secondItem="gLp-Rj-4eZ" secondAttribute="leading" constant="24" id="NmM-ph-9XV"/>
+                                    <constraint firstItem="XCZ-ly-9yO" firstAttribute="top" secondItem="gLp-Rj-4eZ" secondAttribute="top" id="Ob8-5C-EoV"/>
+                                    <constraint firstAttribute="trailing" secondItem="Sfo-6B-NC7" secondAttribute="trailing" id="PvX-g7-TEH"/>
+                                    <constraint firstAttribute="bottom" secondItem="sHM-Hy-H2u" secondAttribute="bottom" id="Qix-vg-Wlp"/>
+                                    <constraint firstAttribute="trailing" secondItem="sHM-Hy-H2u" secondAttribute="trailing" id="Vp5-yX-dyT"/>
+                                    <constraint firstAttribute="bottom" secondItem="XCZ-ly-9yO" secondAttribute="bottom" id="bEl-9a-vmS"/>
+                                    <constraint firstItem="sHM-Hy-H2u" firstAttribute="top" secondItem="gLp-Rj-4eZ" secondAttribute="top" id="cVO-LF-h13"/>
+                                    <constraint firstItem="POl-VQ-szf" firstAttribute="leading" secondItem="gLp-Rj-4eZ" secondAttribute="leading" constant="32" id="lWG-PG-8Dp"/>
+                                    <constraint firstAttribute="height" constant="260" id="rr2-fb-RVb"/>
+                                    <constraint firstItem="Sfo-6B-NC7" firstAttribute="top" secondItem="gLp-Rj-4eZ" secondAttribute="top" constant="24" id="wgw-ce-wLe"/>
+                                </constraints>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Action Planning" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="31V-lL-VSa">
+                                <rect key="frame" x="24" y="358" width="366" height="26"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="21"/>
+                                <color key="textColor" systemColor="systemGrayColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Arc-sf-bes" customClass="RichRowControl" customModule="ClockMeal" customModuleProvider="target">
+                                <rect key="frame" x="24" y="456" width="342" height="44"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="2Jk-g1-3NM"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                                        <integer key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="title" value="Time Schedule"/>
+                                    <userDefinedRuntimeAttribute type="image" keyPath="logo" value="clock.badge.exclamationmark.fill" catalog="system"/>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="onTimeScheduleRow:" destination="3dg-dA-C3A" eventType="touchUpInside" id="C1j-7H-YA9"/>
+                                </connections>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="H71-ux-53U" customClass="RichRowIndicatorView" customModule="ClockMeal" customModuleProvider="target">
+                                <rect key="frame" x="24" y="558" width="342" height="44"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="h9x-ti-m5K"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                                        <integer key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Timing Goals" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ogF-pC-XEb">
+                                <rect key="frame" x="24" y="516" width="366" height="26"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="21"/>
+                                <color key="textColor" systemColor="systemGrayColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zb1-J6-UDo" customClass="RichRowIndicatorView" customModule="ClockMeal" customModuleProvider="target">
+                                <rect key="frame" x="24" y="614" width="342" height="44"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="GaU-Eo-KSG"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                                        <integer key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Vua-nq-5Yk" customClass="RichRowIndicatorView" customModule="ClockMeal" customModuleProvider="target">
+                                <rect key="frame" x="24" y="670" width="342" height="44"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="iu3-5Z-9np"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                                        <integer key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pfh-hh-dhW">
+                                <rect key="frame" x="163" y="26" width="64" height="3"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="64" id="0vh-p7-Hgq"/>
+                                    <constraint firstAttribute="height" constant="3" id="gjk-XP-rxY"/>
+                                </constraints>
+                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled"/>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Meal Detail" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gF7-JY-KB7">
+                                <rect key="frame" x="152.66666666666666" y="45" width="85" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hdg-1A-R4F">
+                                <rect key="frame" x="8" y="41" width="59" height="31"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Done"/>
+                                <connections>
+                                    <action selector="onDoneButton:" destination="3dg-dA-C3A" eventType="touchUpInside" id="Pww-Xt-tnh"/>
+                                </connections>
+                            </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UIX-7W-Jm1" customClass="RichRowSwitchControl" customModule="ClockMeal" customModuleProvider="target">
+                                <rect key="frame" x="24" y="400" width="342" height="44"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="KeO-xW-RY2"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                                        <integer key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="image" keyPath="logo" value="plus.square.fill.on.square.fill" catalog="system"/>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="title" value="Having This Meal"/>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="onHavingMealSwitch:" destination="3dg-dA-C3A" eventType="valueChanged" id="7wz-EL-Bul"/>
+                                </connections>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="XfD-vz-kGT"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="XfD-vz-kGT" firstAttribute="trailing" secondItem="31V-lL-VSa" secondAttribute="trailing" id="3Ps-th-2Wv"/>
+                            <constraint firstItem="XfD-vz-kGT" firstAttribute="trailing" secondItem="gLp-Rj-4eZ" secondAttribute="trailing" id="5CE-Ta-hUc"/>
+                            <constraint firstItem="XfD-vz-kGT" firstAttribute="trailing" secondItem="zb1-J6-UDo" secondAttribute="trailing" constant="24" id="5x3-Q5-tgK"/>
+                            <constraint firstItem="gF7-JY-KB7" firstAttribute="bottom" secondItem="Hdg-1A-R4F" secondAttribute="bottom" constant="-6" id="83n-hw-PGJ"/>
+                            <constraint firstItem="Arc-sf-bes" firstAttribute="leading" secondItem="XfD-vz-kGT" secondAttribute="leading" constant="24" id="D7X-gv-bnP"/>
+                            <constraint firstItem="UIX-7W-Jm1" firstAttribute="top" secondItem="31V-lL-VSa" secondAttribute="bottom" constant="16" id="DQe-hh-mgX"/>
+                            <constraint firstItem="XfD-vz-kGT" firstAttribute="trailing" secondItem="H71-ux-53U" secondAttribute="trailing" constant="24" id="Dgg-R5-xXO"/>
+                            <constraint firstItem="Hdg-1A-R4F" firstAttribute="leading" secondItem="XfD-vz-kGT" secondAttribute="leading" constant="8" id="Iuz-39-esK"/>
+                            <constraint firstItem="31V-lL-VSa" firstAttribute="leading" secondItem="XfD-vz-kGT" secondAttribute="leading" constant="24" id="Jhy-MD-4ns"/>
+                            <constraint firstItem="H71-ux-53U" firstAttribute="top" secondItem="ogF-pC-XEb" secondAttribute="bottom" constant="16" id="K6a-Gc-bBI"/>
+                            <constraint firstItem="Vua-nq-5Yk" firstAttribute="leading" secondItem="XfD-vz-kGT" secondAttribute="leading" constant="24" id="NMI-is-Apn"/>
+                            <constraint firstItem="Vua-nq-5Yk" firstAttribute="top" secondItem="zb1-J6-UDo" secondAttribute="bottom" constant="12" id="RRK-z4-b5C"/>
+                            <constraint firstItem="ogF-pC-XEb" firstAttribute="leading" secondItem="XfD-vz-kGT" secondAttribute="leading" constant="24" id="WO5-wR-hO4"/>
+                            <constraint firstItem="Arc-sf-bes" firstAttribute="top" secondItem="UIX-7W-Jm1" secondAttribute="bottom" constant="12" id="bYE-Um-vkN"/>
+                            <constraint firstItem="gLp-Rj-4eZ" firstAttribute="top" secondItem="gF7-JY-KB7" secondAttribute="bottom" constant="16" id="dTC-D3-NbU"/>
+                            <constraint firstItem="XfD-vz-kGT" firstAttribute="trailing" secondItem="ogF-pC-XEb" secondAttribute="trailing" id="lot-bN-0Dk"/>
+                            <constraint firstItem="gLp-Rj-4eZ" firstAttribute="leading" secondItem="XfD-vz-kGT" secondAttribute="leading" id="muX-3x-qx9"/>
+                            <constraint firstItem="zb1-J6-UDo" firstAttribute="leading" secondItem="XfD-vz-kGT" secondAttribute="leading" constant="24" id="ns8-mr-OIf"/>
+                            <constraint firstItem="gF7-JY-KB7" firstAttribute="top" secondItem="pfh-hh-dhW" secondAttribute="bottom" constant="16" id="rbo-3e-8W3"/>
+                            <constraint firstItem="pfh-hh-dhW" firstAttribute="centerX" secondItem="frP-EG-a9p" secondAttribute="centerX" id="rx6-lu-cSI"/>
+                            <constraint firstItem="zb1-J6-UDo" firstAttribute="top" secondItem="H71-ux-53U" secondAttribute="bottom" constant="12" id="rxq-Bx-oeS"/>
+                            <constraint firstItem="gF7-JY-KB7" firstAttribute="centerX" secondItem="frP-EG-a9p" secondAttribute="centerX" id="scS-sI-88A"/>
+                            <constraint firstItem="UIX-7W-Jm1" firstAttribute="leading" secondItem="XfD-vz-kGT" secondAttribute="leading" constant="24" id="tSA-Lw-cEf"/>
+                            <constraint firstItem="XfD-vz-kGT" firstAttribute="trailing" secondItem="UIX-7W-Jm1" secondAttribute="trailing" constant="24" id="tav-m5-KPz"/>
+                            <constraint firstItem="ogF-pC-XEb" firstAttribute="top" secondItem="Arc-sf-bes" secondAttribute="bottom" constant="16" id="vCn-yn-Qs7"/>
+                            <constraint firstItem="pfh-hh-dhW" firstAttribute="top" secondItem="frP-EG-a9p" secondAttribute="top" constant="26" id="vd1-yG-JiQ"/>
+                            <constraint firstItem="XfD-vz-kGT" firstAttribute="trailing" secondItem="Arc-sf-bes" secondAttribute="trailing" constant="24" id="xOA-zG-QL5"/>
+                            <constraint firstItem="XfD-vz-kGT" firstAttribute="trailing" secondItem="Vua-nq-5Yk" secondAttribute="trailing" constant="24" id="yrw-Ox-QWe"/>
+                            <constraint firstItem="H71-ux-53U" firstAttribute="leading" secondItem="XfD-vz-kGT" secondAttribute="leading" constant="24" id="z2Q-7j-cj4"/>
+                            <constraint firstItem="31V-lL-VSa" firstAttribute="top" secondItem="gLp-Rj-4eZ" secondAttribute="bottom" constant="16" id="zqm-8M-3zC"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="YXU-fw-L3q"/>
+                    <connections>
+                        <outlet property="descriptionLabel" destination="POl-VQ-szf" id="AsZ-Af-Mem"/>
+                        <outlet property="imageView" destination="sHM-Hy-H2u" id="dN4-TF-8dh"/>
+                        <outlet property="timeScheduleControl" destination="Arc-sf-bes" id="yK8-vt-7rb"/>
+                        <outlet property="titleLabel" destination="Sfo-6B-NC7" id="ZXw-mJ-ICF"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="HOb-Ny-j2Q" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-655.38461538461536" y="310.66350710900474"/>
+        </scene>
+        <!--History-->
+        <scene sceneID="fcu-VW-wTS">
+            <objects>
+                <viewController title="History" id="SKU-VE-Jgp" customClass="HistoryViewController" customModule="ClockMeal" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="RjL-PK-CTc">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="History" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bhV-cY-57m">
+                                <rect key="frame" x="24" y="68" width="73" height="26"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="21"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="2N1-LE-HvJ"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="bhV-cY-57m" firstAttribute="leading" secondItem="2N1-LE-HvJ" secondAttribute="leading" constant="24" id="2xA-Rv-ANN"/>
+                            <constraint firstItem="bhV-cY-57m" firstAttribute="top" secondItem="2N1-LE-HvJ" secondAttribute="top" constant="24" id="iLh-cN-iqn"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="History" image="book" catalog="system" selectedImage="book.fill" id="iYR-bB-8Mv"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1iG-g3-ZP9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="243" y="-425"/>
+        </scene>
+        <!--Snack-->
+        <scene sceneID="mfX-at-B38">
+            <objects>
+                <viewController title="Snack" id="ufA-Ka-C7b" customClass="SnacksViewController" customModule="ClockMeal" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="BTB-nh-mG0">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Snacks" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oE5-AE-7Dc">
+                                <rect key="frame" x="24" y="68" width="72" height="26"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="21"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PKJ-CY-UGT">
+                                <rect key="frame" x="24" y="110" width="342" height="250"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="snack" translatesAutoresizingMaskIntoConstraints="NO" id="AWC-6T-yPr">
+                                        <rect key="frame" x="0.0" y="0.0" width="342" height="250"/>
+                                    </imageView>
+                                    <view clipsSubviews="YES" alpha="0.84999999999999998" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tzf-RT-a7I" customClass="Gradient" customModule="ClockMeal" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="342" height="250"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="startColor">
+                                                <color key="value" red="0.0" green="0.0" blue="0.0" alpha="0.60065202067669177" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="endColor">
+                                                <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="startLocation">
+                                                <real key="value" value="0.0"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="endLocation">
+                                                <real key="value" value="1"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="horizontalMode" value="NO"/>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="diagonalMode" value="NO"/>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent nec malesuada dui. Quisque condimentum" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="koZ-82-8Yi">
+                                        <rect key="frame" x="24" y="168.66666666666669" width="294" height="57.333333333333343"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="AWC-6T-yPr" firstAttribute="top" secondItem="PKJ-CY-UGT" secondAttribute="top" id="1IF-bQ-Pq9"/>
+                                    <constraint firstAttribute="trailing" secondItem="koZ-82-8Yi" secondAttribute="trailing" constant="24" id="9YR-bG-daB"/>
+                                    <constraint firstAttribute="bottom" secondItem="tzf-RT-a7I" secondAttribute="bottom" id="DiA-6u-7GM"/>
+                                    <constraint firstItem="koZ-82-8Yi" firstAttribute="leading" secondItem="PKJ-CY-UGT" secondAttribute="leading" constant="24" id="Y4k-uV-lx3"/>
+                                    <constraint firstAttribute="height" constant="250" id="bl7-Yo-GT4"/>
+                                    <constraint firstItem="tzf-RT-a7I" firstAttribute="leading" secondItem="PKJ-CY-UGT" secondAttribute="leading" id="cH2-4Y-Dsy"/>
+                                    <constraint firstAttribute="trailing" secondItem="tzf-RT-a7I" secondAttribute="trailing" id="dIy-GI-TsG"/>
+                                    <constraint firstAttribute="bottom" secondItem="koZ-82-8Yi" secondAttribute="bottom" constant="24" id="huB-A6-Jfs"/>
+                                    <constraint firstAttribute="bottom" secondItem="AWC-6T-yPr" secondAttribute="bottom" id="iAd-lx-7ql"/>
+                                    <constraint firstItem="tzf-RT-a7I" firstAttribute="top" secondItem="PKJ-CY-UGT" secondAttribute="top" id="j4N-L8-37L"/>
+                                    <constraint firstItem="AWC-6T-yPr" firstAttribute="leading" secondItem="PKJ-CY-UGT" secondAttribute="leading" id="w4B-Gs-e4a"/>
+                                    <constraint firstAttribute="trailing" secondItem="AWC-6T-yPr" secondAttribute="trailing" id="xF3-Rc-eou"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                                        <integer key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="C9n-F1-R5S" customClass="InfoCardView" customModule="ClockMeal" customModuleProvider="target">
+                                <rect key="frame" x="24" y="384" width="159" height="157"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="C9n-F1-R5S" secondAttribute="height" multiplier="159:157" id="4LE-Ii-tQ7"/>
+                                    <constraint firstAttribute="height" constant="157" id="Pba-fr-bZP"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                                        <integer key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="title" value="Can I Have Snack Now"/>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="value" value="Yes"/>
+                                    <userDefinedRuntimeAttribute type="image" keyPath="image" value="alarm.fill" catalog="system"/>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VhZ-Q6-Pfk" customClass="InfoCardView" customModule="ClockMeal" customModuleProvider="target">
+                                <rect key="frame" x="207" y="384" width="159" height="157"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="157" id="Eqq-hw-1wW"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                                        <integer key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="title" value="Snack Time Suggestion"/>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="value" value="01:00 PM"/>
+                                    <userDefinedRuntimeAttribute type="image" keyPath="image" value="hourglass.tophalf.fill" catalog="system"/>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vsU-Tz-xeC">
+                                <rect key="frame" x="24" y="565" width="342" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="tml-QT-HHh"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Getting Snacks"/>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Ag0-og-ob5"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="oE5-AE-7Dc" firstAttribute="top" secondItem="Ag0-og-ob5" secondAttribute="top" constant="24" id="1qH-4R-cvu"/>
+                            <constraint firstItem="VhZ-Q6-Pfk" firstAttribute="leading" secondItem="C9n-F1-R5S" secondAttribute="trailing" constant="24" id="5S2-TV-0Mr"/>
+                            <constraint firstItem="C9n-F1-R5S" firstAttribute="leading" secondItem="Ag0-og-ob5" secondAttribute="leading" constant="24" id="8i8-Eu-IT2"/>
+                            <constraint firstItem="PKJ-CY-UGT" firstAttribute="leading" secondItem="Ag0-og-ob5" secondAttribute="leading" constant="24" id="9Qm-sx-jiI"/>
+                            <constraint firstItem="VhZ-Q6-Pfk" firstAttribute="top" secondItem="PKJ-CY-UGT" secondAttribute="bottom" constant="24" id="Dyd-NL-ezN"/>
+                            <constraint firstItem="Ag0-og-ob5" firstAttribute="trailing" secondItem="PKJ-CY-UGT" secondAttribute="trailing" constant="24" id="JE0-j0-p4J"/>
+                            <constraint firstItem="PKJ-CY-UGT" firstAttribute="top" secondItem="oE5-AE-7Dc" secondAttribute="bottom" constant="16" id="KQ0-TH-9d5"/>
+                            <constraint firstItem="vsU-Tz-xeC" firstAttribute="leading" secondItem="Ag0-og-ob5" secondAttribute="leading" constant="24" id="Qrk-wY-fbc"/>
+                            <constraint firstItem="vsU-Tz-xeC" firstAttribute="top" secondItem="C9n-F1-R5S" secondAttribute="bottom" constant="24" id="SY4-ig-CPO"/>
+                            <constraint firstItem="Ag0-og-ob5" firstAttribute="trailing" secondItem="vsU-Tz-xeC" secondAttribute="trailing" constant="24" id="Zzz-82-dLd"/>
+                            <constraint firstItem="oE5-AE-7Dc" firstAttribute="leading" secondItem="Ag0-og-ob5" secondAttribute="leading" constant="24" id="hRk-jy-a1r"/>
+                            <constraint firstItem="Ag0-og-ob5" firstAttribute="trailing" secondItem="VhZ-Q6-Pfk" secondAttribute="trailing" constant="24" id="kql-gu-Y64"/>
+                            <constraint firstItem="C9n-F1-R5S" firstAttribute="top" secondItem="PKJ-CY-UGT" secondAttribute="bottom" constant="24" id="lgr-ux-Z9J"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Snacks" image="takeoutbag.and.cup.and.straw" catalog="system" selectedImage="takeoutbag.and.cup.and.straw.fill" id="lqb-Xz-Vs2"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="e6r-VP-D13" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1498.4615384615383" y="-425.11848341232223"/>
+        </scene>
+        <!--My Tab Bar Controller-->
+        <scene sceneID="08v-Zr-Nh9">
+            <objects>
+                <tabBarController id="T2Q-KJ-m2h" customClass="MyTabBarController" customModule="ClockMeal" customModuleProvider="target" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Ly5-ne-VNd">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" red="0.97647058959999999" green="0.97647058959999999" blue="0.97647058959999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="bWH-6l-Cpi"/>
+                        <segue destination="ufA-Ka-C7b" kind="relationship" relationship="viewControllers" id="499-hN-npi"/>
+                        <segue destination="guH-3x-roS" kind="relationship" relationship="viewControllers" id="8kt-4Q-ad2"/>
+                        <segue destination="SKU-VE-Jgp" kind="relationship" relationship="viewControllers" id="vA7-mv-hRp"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="40b-1m-04c" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1020" y="-1160"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="alarm.fill" catalog="system" width="124" height="128"/>
+        <image name="b.square.fill" catalog="system" width="128" height="114"/>
+        <image name="book" catalog="system" width="128" height="99"/>
+        <image name="book.fill" catalog="system" width="128" height="95"/>
+        <image name="breakfast" width="3024" height="4032"/>
+        <image name="clock" catalog="system" width="128" height="121"/>
+        <image name="clock.badge.exclamationmark.fill" catalog="system" width="128" height="113"/>
+        <image name="clock.fill" catalog="system" width="128" height="121"/>
+        <image name="d.square.fill" catalog="system" width="128" height="114"/>
+        <image name="dinner" width="5472" height="3648"/>
+        <image name="exclamationmark.triangle.fill" catalog="system" width="128" height="112"/>
+        <image name="hourglass.tophalf.fill" catalog="system" width="102" height="128"/>
+        <image name="house" catalog="system" width="128" height="106"/>
+        <image name="house.fill" catalog="system" width="128" height="106"/>
+        <image name="l.square.fill" catalog="system" width="128" height="114"/>
+        <image name="lunch" width="5503" height="3745"/>
+        <image name="morning" width="3379" height="5068"/>
+        <image name="plus.square.fill.on.square.fill" catalog="system" width="128" height="113"/>
+        <image name="snack" width="6000" height="4000"/>
+        <image name="takeoutbag.and.cup.and.straw" catalog="system" width="128" height="110"/>
+        <image name="takeoutbag.and.cup.and.straw.fill" catalog="system" width="128" height="110"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGray4Color">
+            <color red="0.81960784313725488" green="0.81960784313725488" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemGrayColor">
+            <color red="0.55686274509803924" green="0.55686274509803924" blue="0.57647058823529407" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>

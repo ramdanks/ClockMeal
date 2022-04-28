@@ -1,0 +1,461 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 55;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		3F393579281A74B500981A47 /* MealType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F393578281A74B500981A47 /* MealType.swift */; };
+		3F39357B281A7D1100981A47 /* RichRowIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F39357A281A7D1100981A47 /* RichRowIndicatorView.swift */; };
+		3F39357D281A7D1D00981A47 /* RichRowIndicatorView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3F39357C281A7D1D00981A47 /* RichRowIndicatorView.xib */; };
+		3F50CFD9281ADCE600787A59 /* MealRules.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F50CFD8281ADCE600787A59 /* MealRules.swift */; };
+		3F50CFDB281ADCFD00787A59 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F50CFDA281ADCFD00787A59 /* Settings.swift */; };
+		3F6F49F9281AD0F30038AF82 /* RichRowSwitchControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F6F49F8281AD0F30038AF82 /* RichRowSwitchControl.swift */; };
+		3F6F49FB281AD1040038AF82 /* RichRowSwitchControl.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3F6F49FA281AD1040038AF82 /* RichRowSwitchControl.xib */; };
+		3F8435AB281668EC00BCB8EE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8435AA281668EC00BCB8EE /* AppDelegate.swift */; };
+		3F8435AD281668EC00BCB8EE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8435AC281668EC00BCB8EE /* SceneDelegate.swift */; };
+		3F8435B2281668EC00BCB8EE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3F8435B0281668EC00BCB8EE /* Main.storyboard */; };
+		3F8435B4281668ED00BCB8EE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3F8435B3281668ED00BCB8EE /* Assets.xcassets */; };
+		3F8435B7281668ED00BCB8EE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3F8435B5281668ED00BCB8EE /* LaunchScreen.storyboard */; };
+		3F8435C3281A004700BCB8EE /* MyTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8435C2281A004700BCB8EE /* MyTabBarController.swift */; };
+		3F8435C5281A226500BCB8EE /* RichRowControl.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3F8435C4281A226500BCB8EE /* RichRowControl.xib */; };
+		3F8435C7281A261600BCB8EE /* RichRowControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8435C6281A261600BCB8EE /* RichRowControl.swift */; };
+		3F8435C9281A298000BCB8EE /* RichRowDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8435C8281A298000BCB8EE /* RichRowDetailView.swift */; };
+		3F8435CB281A299900BCB8EE /* RichRowDetailView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3F8435CA281A299900BCB8EE /* RichRowDetailView.xib */; };
+		3F8435CD281A2F0600BCB8EE /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8435CC281A2F0600BCB8EE /* HomeViewController.swift */; };
+		3F8435CF281A2F3900BCB8EE /* SnacksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8435CE281A2F3900BCB8EE /* SnacksViewController.swift */; };
+		3F8435D1281A2F4400BCB8EE /* ScheduleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8435D0281A2F4400BCB8EE /* ScheduleViewController.swift */; };
+		3F8435D3281A2F4F00BCB8EE /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8435D2281A2F4F00BCB8EE /* HistoryViewController.swift */; };
+		3F8435D5281A2F8700BCB8EE /* MealDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8435D4281A2F8700BCB8EE /* MealDetailViewController.swift */; };
+		3F8435D7281A471900BCB8EE /* ScheduleCardControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8435D6281A471900BCB8EE /* ScheduleCardControl.swift */; };
+		3F8435D9281A472500BCB8EE /* ScheduleCardControl.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3F8435D8281A472500BCB8EE /* ScheduleCardControl.xib */; };
+		3F9C7D77281A6523007C33E4 /* InfoCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F9C7D76281A6523007C33E4 /* InfoCardView.swift */; };
+		3F9C7D79281A652B007C33E4 /* InfoCardView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3F9C7D78281A652B007C33E4 /* InfoCardView.xib */; };
+		3FA605E1281A92A900CBF991 /* TimePickerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3FA605E0281A92A900CBF991 /* TimePickerView.xib */; };
+		3FA605E3281A92B100CBF991 /* TimePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FA605E2281A92B100CBF991 /* TimePickerView.swift */; };
+		3FA605E7281ABFCB00CBF991 /* Gradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FA605E6281ABFCB00CBF991 /* Gradient.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		3F393578281A74B500981A47 /* MealType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealType.swift; sourceTree = "<group>"; };
+		3F39357A281A7D1100981A47 /* RichRowIndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RichRowIndicatorView.swift; sourceTree = "<group>"; };
+		3F39357C281A7D1D00981A47 /* RichRowIndicatorView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RichRowIndicatorView.xib; sourceTree = "<group>"; };
+		3F50CFD8281ADCE600787A59 /* MealRules.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealRules.swift; sourceTree = "<group>"; };
+		3F50CFDA281ADCFD00787A59 /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
+		3F6F49F8281AD0F30038AF82 /* RichRowSwitchControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RichRowSwitchControl.swift; sourceTree = "<group>"; };
+		3F6F49FA281AD1040038AF82 /* RichRowSwitchControl.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RichRowSwitchControl.xib; sourceTree = "<group>"; };
+		3F8435A7281668EC00BCB8EE /* ClockMeal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ClockMeal.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		3F8435AA281668EC00BCB8EE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		3F8435AC281668EC00BCB8EE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		3F8435B1281668EC00BCB8EE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		3F8435B3281668ED00BCB8EE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		3F8435B6281668ED00BCB8EE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		3F8435B8281668ED00BCB8EE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3F8435C2281A004700BCB8EE /* MyTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTabBarController.swift; sourceTree = "<group>"; };
+		3F8435C4281A226500BCB8EE /* RichRowControl.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RichRowControl.xib; sourceTree = "<group>"; };
+		3F8435C6281A261600BCB8EE /* RichRowControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RichRowControl.swift; sourceTree = "<group>"; };
+		3F8435C8281A298000BCB8EE /* RichRowDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RichRowDetailView.swift; sourceTree = "<group>"; };
+		3F8435CA281A299900BCB8EE /* RichRowDetailView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RichRowDetailView.xib; sourceTree = "<group>"; };
+		3F8435CC281A2F0600BCB8EE /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		3F8435CE281A2F3900BCB8EE /* SnacksViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnacksViewController.swift; sourceTree = "<group>"; };
+		3F8435D0281A2F4400BCB8EE /* ScheduleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleViewController.swift; sourceTree = "<group>"; };
+		3F8435D2281A2F4F00BCB8EE /* HistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
+		3F8435D4281A2F8700BCB8EE /* MealDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealDetailViewController.swift; sourceTree = "<group>"; };
+		3F8435D6281A471900BCB8EE /* ScheduleCardControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleCardControl.swift; sourceTree = "<group>"; };
+		3F8435D8281A472500BCB8EE /* ScheduleCardControl.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ScheduleCardControl.xib; sourceTree = "<group>"; };
+		3F9C7D76281A6523007C33E4 /* InfoCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoCardView.swift; sourceTree = "<group>"; };
+		3F9C7D78281A652B007C33E4 /* InfoCardView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InfoCardView.xib; sourceTree = "<group>"; };
+		3FA605E0281A92A900CBF991 /* TimePickerView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TimePickerView.xib; sourceTree = "<group>"; };
+		3FA605E2281A92B100CBF991 /* TimePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimePickerView.swift; sourceTree = "<group>"; };
+		3FA605E6281ABFCB00CBF991 /* Gradient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gradient.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		3F8435A4281668EC00BCB8EE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		3F84359E281668EC00BCB8EE = {
+			isa = PBXGroup;
+			children = (
+				3F8435A9281668EC00BCB8EE /* ClockMeal */,
+				3F8435A8281668EC00BCB8EE /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		3F8435A8281668EC00BCB8EE /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				3F8435A7281668EC00BCB8EE /* ClockMeal.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		3F8435A9281668EC00BCB8EE /* ClockMeal */ = {
+			isa = PBXGroup;
+			children = (
+				3F50CFDA281ADCFD00787A59 /* Settings.swift */,
+				3F50CFD8281ADCE600787A59 /* MealRules.swift */,
+				3F393578281A74B500981A47 /* MealType.swift */,
+				3F8435C2281A004700BCB8EE /* MyTabBarController.swift */,
+				3F8435AA281668EC00BCB8EE /* AppDelegate.swift */,
+				3F8435AC281668EC00BCB8EE /* SceneDelegate.swift */,
+				3F8435CC281A2F0600BCB8EE /* HomeViewController.swift */,
+				3F8435CE281A2F3900BCB8EE /* SnacksViewController.swift */,
+				3F8435D0281A2F4400BCB8EE /* ScheduleViewController.swift */,
+				3F8435D2281A2F4F00BCB8EE /* HistoryViewController.swift */,
+				3F8435D4281A2F8700BCB8EE /* MealDetailViewController.swift */,
+				3F8435B0281668EC00BCB8EE /* Main.storyboard */,
+				3F8435B3281668ED00BCB8EE /* Assets.xcassets */,
+				3F8435B5281668ED00BCB8EE /* LaunchScreen.storyboard */,
+				3F8435B8281668ED00BCB8EE /* Info.plist */,
+				3FA605E0281A92A900CBF991 /* TimePickerView.xib */,
+				3FA605E2281A92B100CBF991 /* TimePickerView.swift */,
+				3F8435C4281A226500BCB8EE /* RichRowControl.xib */,
+				3F8435C6281A261600BCB8EE /* RichRowControl.swift */,
+				3F6F49FA281AD1040038AF82 /* RichRowSwitchControl.xib */,
+				3F6F49F8281AD0F30038AF82 /* RichRowSwitchControl.swift */,
+				3F8435CA281A299900BCB8EE /* RichRowDetailView.xib */,
+				3F8435C8281A298000BCB8EE /* RichRowDetailView.swift */,
+				3F8435D8281A472500BCB8EE /* ScheduleCardControl.xib */,
+				3F8435D6281A471900BCB8EE /* ScheduleCardControl.swift */,
+				3F9C7D78281A652B007C33E4 /* InfoCardView.xib */,
+				3F9C7D76281A6523007C33E4 /* InfoCardView.swift */,
+				3F39357C281A7D1D00981A47 /* RichRowIndicatorView.xib */,
+				3F39357A281A7D1100981A47 /* RichRowIndicatorView.swift */,
+				3FA605E6281ABFCB00CBF991 /* Gradient.swift */,
+			);
+			path = ClockMeal;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		3F8435A6281668EC00BCB8EE /* ClockMeal */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3F8435BB281668ED00BCB8EE /* Build configuration list for PBXNativeTarget "ClockMeal" */;
+			buildPhases = (
+				3F8435A3281668EC00BCB8EE /* Sources */,
+				3F8435A4281668EC00BCB8EE /* Frameworks */,
+				3F8435A5281668EC00BCB8EE /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ClockMeal;
+			productName = ClockMeal;
+			productReference = 3F8435A7281668EC00BCB8EE /* ClockMeal.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		3F84359F281668EC00BCB8EE /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1330;
+				LastUpgradeCheck = 1330;
+				TargetAttributes = {
+					3F8435A6281668EC00BCB8EE = {
+						CreatedOnToolsVersion = 13.3.1;
+					};
+				};
+			};
+			buildConfigurationList = 3F8435A2281668EC00BCB8EE /* Build configuration list for PBXProject "ClockMeal" */;
+			compatibilityVersion = "Xcode 13.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 3F84359E281668EC00BCB8EE;
+			productRefGroup = 3F8435A8281668EC00BCB8EE /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				3F8435A6281668EC00BCB8EE /* ClockMeal */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		3F8435A5281668EC00BCB8EE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3F6F49FB281AD1040038AF82 /* RichRowSwitchControl.xib in Resources */,
+				3F8435B7281668ED00BCB8EE /* LaunchScreen.storyboard in Resources */,
+				3F8435C5281A226500BCB8EE /* RichRowControl.xib in Resources */,
+				3F8435CB281A299900BCB8EE /* RichRowDetailView.xib in Resources */,
+				3F8435D9281A472500BCB8EE /* ScheduleCardControl.xib in Resources */,
+				3F8435B4281668ED00BCB8EE /* Assets.xcassets in Resources */,
+				3FA605E1281A92A900CBF991 /* TimePickerView.xib in Resources */,
+				3F8435B2281668EC00BCB8EE /* Main.storyboard in Resources */,
+				3F39357D281A7D1D00981A47 /* RichRowIndicatorView.xib in Resources */,
+				3F9C7D79281A652B007C33E4 /* InfoCardView.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		3F8435A3281668EC00BCB8EE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3F8435C3281A004700BCB8EE /* MyTabBarController.swift in Sources */,
+				3F8435C9281A298000BCB8EE /* RichRowDetailView.swift in Sources */,
+				3F8435D7281A471900BCB8EE /* ScheduleCardControl.swift in Sources */,
+				3F8435D3281A2F4F00BCB8EE /* HistoryViewController.swift in Sources */,
+				3F8435D5281A2F8700BCB8EE /* MealDetailViewController.swift in Sources */,
+				3F8435D1281A2F4400BCB8EE /* ScheduleViewController.swift in Sources */,
+				3F39357B281A7D1100981A47 /* RichRowIndicatorView.swift in Sources */,
+				3FA605E7281ABFCB00CBF991 /* Gradient.swift in Sources */,
+				3FA605E3281A92B100CBF991 /* TimePickerView.swift in Sources */,
+				3F8435AB281668EC00BCB8EE /* AppDelegate.swift in Sources */,
+				3F50CFD9281ADCE600787A59 /* MealRules.swift in Sources */,
+				3F6F49F9281AD0F30038AF82 /* RichRowSwitchControl.swift in Sources */,
+				3F8435C7281A261600BCB8EE /* RichRowControl.swift in Sources */,
+				3F393579281A74B500981A47 /* MealType.swift in Sources */,
+				3F8435CD281A2F0600BCB8EE /* HomeViewController.swift in Sources */,
+				3F8435AD281668EC00BCB8EE /* SceneDelegate.swift in Sources */,
+				3F9C7D77281A6523007C33E4 /* InfoCardView.swift in Sources */,
+				3F8435CF281A2F3900BCB8EE /* SnacksViewController.swift in Sources */,
+				3F50CFDB281ADCFD00787A59 /* Settings.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		3F8435B0281668EC00BCB8EE /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3F8435B1281668EC00BCB8EE /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		3F8435B5281668ED00BCB8EE /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3F8435B6281668ED00BCB8EE /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		3F8435B9281668ED00BCB8EE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		3F8435BA281668ED00BCB8EE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		3F8435BC281668ED00BCB8EE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 435LRWY56J;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = ClockMeal/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = ClockMeal;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ramdan.ClockMeal;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		3F8435BD281668ED00BCB8EE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 435LRWY56J;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = ClockMeal/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = ClockMeal;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ramdan.ClockMeal;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		3F8435A2281668EC00BCB8EE /* Build configuration list for PBXProject "ClockMeal" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3F8435B9281668ED00BCB8EE /* Debug */,
+				3F8435BA281668ED00BCB8EE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3F8435BB281668ED00BCB8EE /* Build configuration list for PBXNativeTarget "ClockMeal" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3F8435BC281668ED00BCB8EE /* Debug */,
+				3F8435BD281668ED00BCB8EE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 3F84359F281668EC00BCB8EE /* Project object */;
+}

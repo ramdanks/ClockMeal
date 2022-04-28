@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ScheduleCardControl" customModule="ClockMeal" customModuleProvider="target">
+            <connections>
+                <outlet property="imageView" destination="W1D-yV-uEf" id="UMb-yM-LLb"/>
+                <outlet property="infoLabel0" destination="heD-M4-hOI" id="JAE-TG-1Hu"/>
+                <outlet property="infoLabel1" destination="jFd-2T-pj4" id="2T2-vW-Z4G"/>
+                <outlet property="titleLabel" destination="wct-pn-Ar4" id="hQ1-jU-c7h"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="342" height="65"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="lunch" translatesAutoresizingMaskIntoConstraints="NO" id="W1D-yV-uEf">
+                    <rect key="frame" x="0.0" y="0.0" width="342" height="65"/>
+                </imageView>
+                <view alpha="0.59999999999999998" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DCe-kR-Ocy" userLabel="darken">
+                    <rect key="frame" x="0.0" y="0.0" width="342" height="65"/>
+                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                </view>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="clock.fill" catalog="system" id="rVk-lm-FGH">
+                    <rect key="frame" x="316" y="38" width="16" height="16"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Lunch" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wct-pn-Ar4">
+                    <rect key="frame" x="14" y="14" width="174" height="37"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Issue Count" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="heD-M4-hOI">
+                    <rect key="frame" x="231" y="10" width="77" height="17"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="exclamationmark.square.fill" catalog="system" id="2zw-1o-Rle">
+                    <rect key="frame" x="316" y="11" width="16" height="16"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Schedule Time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jFd-2T-pj4">
+                    <rect key="frame" x="212" y="37" width="96" height="17"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <accessibility key="accessibilityConfiguration">
+                <accessibilityTraits key="traits" button="YES"/>
+            </accessibility>
+            <constraints>
+                <constraint firstItem="W1D-yV-uEf" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="6V3-15-dWC"/>
+                <constraint firstItem="wct-pn-Ar4" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="14" id="CLq-SH-488"/>
+                <constraint firstItem="DCe-kR-Ocy" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="CjP-tE-j9X"/>
+                <constraint firstAttribute="trailing" secondItem="W1D-yV-uEf" secondAttribute="trailing" id="Dwe-cQ-civ"/>
+                <constraint firstAttribute="bottom" secondItem="W1D-yV-uEf" secondAttribute="bottom" id="Eff-Kf-olf"/>
+                <constraint firstAttribute="bottom" secondItem="DCe-kR-Ocy" secondAttribute="bottom" id="Ihk-x4-ygZ"/>
+                <constraint firstItem="DCe-kR-Ocy" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="Ti2-C1-EE2"/>
+                <constraint firstItem="wct-pn-Ar4" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="14" id="Zaf-gV-BAI"/>
+                <constraint firstAttribute="bottom" secondItem="wct-pn-Ar4" secondAttribute="bottom" constant="14" id="cKU-Su-c3a"/>
+                <constraint firstItem="W1D-yV-uEf" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="fJs-lP-LxL"/>
+                <constraint firstAttribute="trailing" secondItem="DCe-kR-Ocy" secondAttribute="trailing" id="oof-Wi-9V0"/>
+            </constraints>
+            <nil key="simulatedTopBarMetrics"/>
+            <nil key="simulatedBottomBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="128.98550724637681" y="131.58482142857142"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="clock.fill" catalog="system" width="128" height="121"/>
+        <image name="exclamationmark.square.fill" catalog="system" width="128" height="114"/>
+        <image name="lunch" width="5503" height="3745"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
