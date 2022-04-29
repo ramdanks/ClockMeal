@@ -9,6 +9,22 @@ extension Date
         formatter.dateFormat = format
         return formatter.string(from: self)
     }
+    func toString(_ format: String, timeZone: TimeZone) -> String
+    {
+        let formatter = DateFormatter()
+        formatter.dateFormat = format
+        formatter.timeZone = timeZone
+        return formatter.string(from: self)
+    }
+    
+    /// will only take hours and minutes from date and turns it into TimeInterval, (HH:mm)
+    /// it will results valu from 0 -> 24 * 60 * 60
+    func toDailyTimeInterval() -> TimeInterval
+    {
+        let hours = Double(self.toString("HH"))!
+        let mins = Double(self.toString("mm"))!
+        return hours * 60 * 60 + mins * 60
+    }
 }
 
 protocol TimePickerViewDelegate: AnyObject
@@ -22,8 +38,41 @@ class TimePickerView: UIView
 {
     weak var delegate: TimePickerViewDelegate?
     
-    @IBOutlet weak var datePicker: UIDatePicker!
+    var data: MealSelection! { didSet {
+        var time: TimeInterval!
+        if (data.type == .breakfast)
+        {
+            time = data.collection.breakfastData.time
+            goalsView0.title = "Good Interval to Dinner"
+            goalsView1.title = "Good Interval to Lunch"
+        }
+        if (data.type == .lunch)
+        {
+            time = data.collection.lunchData.time
+            goalsView0.title = "Good Interval to Breakfast"
+            goalsView1.title = "Good Interval to Dinner"
+        }
+        if (data.type == .dinner)
+        {
+            time = data.collection.dinnerData.time
+            goalsView0.title = "Good Interval to Lunch"
+            goalsView1.title = "Good Interval to Breakfast"
+        }
+        let dateFormatter = DateFormatter()
+        let dateString = time.toString("hh:mm aa")
+        dateFormatter.dateFormat = "hh:mm aa"
+        datePicker.date = dateFormatter.date(from: dateString) ?? Date()
+        timeLabel.text = dateString
+        updateGoalsView()
+    }}
+    
     @IBOutlet weak var timeLabel: UILabel!
+    
+    @IBOutlet weak var goalsView0: RichRowIndicatorView!
+    
+    @IBOutlet weak var goalsView1: RichRowIndicatorView!
+    
+    @IBOutlet weak var datePicker: UIDatePicker!
     
     init()
     {
@@ -64,7 +113,22 @@ class TimePickerView: UIView
     
     @IBAction func onTimePicker(_ sender: UIDatePicker)
     {
+        updateGoalsView()
         timeLabel.text = sender.date.toString("hh:mm aa")
     }
     
+    func updateGoalsView()
+    {
+        let timingIssue = MealRules.issue(
+            collection: data.collection,
+            forType: data.type,
+            forTime: datePicker.date.toDailyTimeInterval()
+        )
+        
+        goalsView0.rightImageView.tintColor = timingIssue.prev ? .systemRed : .systemGreen
+        goalsView0.indicator = UIImage(systemName: timingIssue.prev ? "exclamationmark.square.fill" : "checkmark.square.fill")
+        
+        goalsView1.rightImageView.tintColor = timingIssue.next ? .systemRed : .systemGreen
+        goalsView1.indicator = UIImage(systemName: timingIssue.next ? "exclamationmark.square.fill" : "checkmark.square.fill")
+    }
 }

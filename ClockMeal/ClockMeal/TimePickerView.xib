@@ -10,6 +10,8 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TimePickerView" customModule="ClockMeal" customModuleProvider="target">
             <connections>
                 <outlet property="datePicker" destination="6I2-No-N8T" id="iX4-1W-eg8"/>
+                <outlet property="goalsView0" destination="lPx-Ij-d7t" id="hnk-bA-ejj"/>
+                <outlet property="goalsView1" destination="ljF-5t-mRa" id="tgh-BQ-DQo"/>
                 <outlet property="timeLabel" destination="9dT-ad-rwK" id="Ldp-bz-46f"/>
             </connections>
         </placeholder>

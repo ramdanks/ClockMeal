@@ -32,15 +32,17 @@
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 </imageView>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Lunch" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wct-pn-Ar4">
-                    <rect key="frame" x="14" y="14" width="174" height="37"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lunch" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wct-pn-Ar4">
+                    <rect key="frame" x="14" y="14" width="150" height="37"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="150" id="KAI-Qp-sx0"/>
+                    </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="30"/>
                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Issue Count" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="heD-M4-hOI">
-                    <rect key="frame" x="231" y="10" width="77" height="17"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Issue Count" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="heD-M4-hOI">
+                    <rect key="frame" x="227" y="10" width="77" height="17"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <nil key="highlightedColor"/>
@@ -50,9 +52,8 @@
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 </imageView>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Schedule Time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jFd-2T-pj4">
-                    <rect key="frame" x="212" y="37" width="96" height="17"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Schedule Time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jFd-2T-pj4">
+                    <rect key="frame" x="208" y="35" width="96" height="20"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <nil key="highlightedColor"/>
@@ -70,10 +71,15 @@
                 <constraint firstAttribute="bottom" secondItem="W1D-yV-uEf" secondAttribute="bottom" id="Eff-Kf-olf"/>
                 <constraint firstAttribute="bottom" secondItem="DCe-kR-Ocy" secondAttribute="bottom" id="Ihk-x4-ygZ"/>
                 <constraint firstItem="DCe-kR-Ocy" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="Ti2-C1-EE2"/>
+                <constraint firstItem="jFd-2T-pj4" firstAttribute="top" secondItem="heD-M4-hOI" secondAttribute="bottom" constant="8" id="VAk-uE-ADp"/>
+                <constraint firstItem="rVk-lm-FGH" firstAttribute="leading" secondItem="jFd-2T-pj4" secondAttribute="trailing" constant="12" id="Z6o-ME-mYB"/>
                 <constraint firstItem="wct-pn-Ar4" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="14" id="Zaf-gV-BAI"/>
+                <constraint firstItem="2zw-1o-Rle" firstAttribute="leading" secondItem="heD-M4-hOI" secondAttribute="trailing" constant="12" id="anf-ss-p3B"/>
                 <constraint firstAttribute="bottom" secondItem="wct-pn-Ar4" secondAttribute="bottom" constant="14" id="cKU-Su-c3a"/>
                 <constraint firstItem="W1D-yV-uEf" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="fJs-lP-LxL"/>
+                <constraint firstAttribute="bottom" secondItem="jFd-2T-pj4" secondAttribute="bottom" constant="10" id="jQi-V1-RSi"/>
                 <constraint firstAttribute="trailing" secondItem="DCe-kR-Ocy" secondAttribute="trailing" id="oof-Wi-9V0"/>
+                <constraint firstItem="heD-M4-hOI" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="10" id="vLf-t3-Vpj"/>
             </constraints>
             <nil key="simulatedTopBarMetrics"/>
             <nil key="simulatedBottomBarMetrics"/>

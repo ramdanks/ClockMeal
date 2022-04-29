@@ -1,10 +1,3 @@
-//
-//  MealDetailViewController.swift
-//  ClockMeal
-//
-//  Created by Ramadhan Kalih Sewu on 28/04/22.
-//
-
 import UIKit
 
 class MealDetailViewController: UIViewController, TimePickerViewDelegate
@@ -13,7 +6,12 @@ class MealDetailViewController: UIViewController, TimePickerViewDelegate
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var imageView: UIImageView!
     
+    @IBOutlet weak var planHavingSwitch: RichRowSwitchControl!
     @IBOutlet weak var timeScheduleControl: RichRowControl!
+    
+    @IBOutlet weak var goalsView0: RichRowIndicatorView!
+    @IBOutlet weak var goalsView1: RichRowIndicatorView!
+    @IBOutlet weak var goalsView2: RichRowIndicatorView!
     
     var timePickerView: TimePickerView = {
         let view = TimePickerView()
@@ -29,22 +27,69 @@ class MealDetailViewController: UIViewController, TimePickerViewDelegate
         return view
     }()
     
-    var type: MealType? { didSet {
-        titleLabel?.text = "\(type!)".capitalized
-    }}
+    var type: MealType?
+    
+    var collection: MealCollection?
+    
+    private var currentData: MealData?
+        
+    private func contentChanged()
+    {
+        if (type == .breakfast)
+        {
+            currentData = collection?.breakfastData
+            goalsView1.title = "Good Interval to Dinner"
+            goalsView2.title = "Good Interval to Lunch"
+        }
+        if (type == .lunch)
+        {
+            currentData = collection?.lunchData
+            goalsView1.title = "Good Interval to Breakfast"
+            goalsView2.title = "Good Interval to Dinner"
+        }
+        if (type == .dinner)
+        {
+            currentData = collection?.dinnerData
+            goalsView1.title = "Good Interval to Lunch"
+            goalsView2.title = "Good Interval to Breakfast"
+        }
+        
+        titleLabel?.text = "\(currentData!.type)".capitalized
+        planHavingSwitch?.rightSwitch.isOn = currentData?.skipped == false
+        timeScheduleControl?.detail = currentData?.time.toString("hh:mm aa")
+    }
     
     override func viewDidLoad()
     {
         super.viewDidLoad()
-        type = { type }()
+        contentChanged()
         timePickerView.delegate = self
         darkenView.frame = self.view.frame
         timePickerView.center = self.view.center
+        // set initial goals indicator
+        let timingIssue = MealRules.issue(collection: collection!, forType: type!, forTime: currentData!.time)
+        setIndicatorState(goalsView1, good: timingIssue.prev == false)
+        setIndicatorState(goalsView2, good: timingIssue.next == false)
+        setIndicatorState(goalsView0, good: currentData?.skipped == false)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool)
+    {
+        // refresh collection data for unwind segue to ScheduleViewController
+        if (currentData?.type == .breakfast) { collection?.breakfastData = currentData! }
+        if (currentData?.type == .lunch)     { collection?.lunchData = currentData! }
+        if (currentData?.type == .dinner)    { collection?.dinnerData = currentData! }
+        // save user defaults
+        Settings.mealDataCollection = collection!
+        // start dismissing
+        super.viewWillDisappear(animated)
+        performSegue(withIdentifier: "unwindSegue", sender: self)
     }
     
     @IBAction func onHavingMealSwitch(_ sender: RichRowSwitchControl)
     {
-        print(sender.rightSwitch.isOn)
+        currentData?.skipped = sender.rightSwitch.isOn == false
+        setIndicatorState(goalsView0, good: sender.rightSwitch.isOn)
     }
     
     @IBAction func onDoneButton(_ sender: Any)
@@ -65,13 +110,27 @@ class MealDetailViewController: UIViewController, TimePickerViewDelegate
     func onConfirmEditing(_ date: Date)
     {
         timeScheduleControl.detail = date.toString("hh:mm aa")
+        self.currentData?.time = date.toDailyTimeInterval()
+        self.collection = timePickerView.data.collection
+        // refresh on timing goals
+        let timingIssue = MealRules.issue(collection: collection!, forType: type!, forTime: currentData!.time)
+        setIndicatorState(goalsView1, good: timingIssue.prev == false)
+        setIndicatorState(goalsView2, good: timingIssue.next == false)
+        // dismiss time picker
         displayTimePicker(false)
+    }
+    
+    func setIndicatorState(_ indicator: RichRowIndicatorView, good: Bool)
+    {
+        indicator.rightImageView.tintColor = good ? .systemGreen : .systemRed
+        indicator.indicator = UIImage(systemName: good ? "checkmark.square.fill" : "exclamationmark.square.fill")
     }
     
     func displayTimePicker(_ display: Bool)
     {
         if (display)
         {
+            timePickerView.data = MealSelection(currentData!.type, collection!)
             UIView.transition(
                 with: self.view,
                 duration: 0.25,
@@ -97,15 +156,4 @@ class MealDetailViewController: UIViewController, TimePickerViewDelegate
             )
         }
     }
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

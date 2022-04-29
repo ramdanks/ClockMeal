@@ -1,27 +1,47 @@
 import Foundation
 
-class Settings
+@propertyWrapper
+struct UserDefault<T: Codable>
 {
-    enum Key
+    let key: String
+    let defaultValue: T
+    var wrappedValue: T
     {
-        case breakfastMealData
-        case lunchMealData
-        case dinnerMealData
+        get
+        {
+            
+            if let data = UserDefaults.standard.object(forKey: key) as? Data,
+               let user = try? PropertyListDecoder().decode(T.self, from: data)
+                { return user }
+                return  defaultValue
+        }
+        set
+        {
+            if let encoded = try? PropertyListEncoder().encode(newValue)
+                { UserDefaults.standard.set(encoded, forKey: key) }
+        }
     }
+}
+
+struct Response: Codable
+{
+    var type: MealType
+    var date: Date
+    var skip: Bool
+}
+
+enum Settings
+{
+    @UserDefault(key: "0", defaultValue: MealCollection(
+        breakfastData:  MealData(type: .breakfast,  time: 08 * 60 * 60, skipped: false),
+        lunchData:      MealData(type: .lunch,      time: 13 * 60 * 60, skipped: false),
+        dinnerData:     MealData(type: .dinner,     time: 19 * 60 * 60, skipped: false))
+    )
+    static var mealDataCollection: MealCollection
     
-    static public func set(_ key: Key, _ value: Any?) -> Void
-    {
-        UserDefaults.standard.set(value, forKey: "\(key)")
-    }
+    @UserDefault(key: "1", defaultValue: nil)
+    static var currentSession: MealType?
     
-    static public func get(_ key: Key) -> Any?
-    {
-        let value = UserDefaults.standard.object(forKey: "\(key)")
-        if (value != nil) { return value }
-        /// default value for user settings
-        if (key == .breakfastMealData) { return MealData(time: 08 * 60 * 60, skipped: false) }
-        if (key == .lunchMealData)     { return MealData(time: 13 * 60 * 60, skipped: false) }
-        if (key == .dinnerMealData)    { return MealData(time: 19 * 60 * 60, skipped: false) }
-        return nil
-    }
+    @UserDefault(key: "2", defaultValue: [])
+    static var responses: [Response]
 }

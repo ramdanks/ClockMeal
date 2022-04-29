@@ -24,11 +24,9 @@ class ScheduleCardControl: UIControl
         imageView.image = image
     }}
     
-    @IBInspectable var indexMealType: Int = 0 { didSet {
-        type = MealType.allCases[indexMealType]
+    var data: MealData! { didSet {
+        info1 = data.time.toString("hh:mm aa")
     }}
-    
-    var type: MealType!
     
     override init(frame: CGRect)
     {
