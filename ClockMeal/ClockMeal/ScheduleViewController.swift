@@ -6,7 +6,8 @@ class ScheduleViewController: UIViewController
     @IBOutlet weak var lunchCard: ScheduleCardControl!
     @IBOutlet weak var dinnerCard: ScheduleCardControl!
     
-    private var selectedType: MealType!
+    private var selectedCard: ScheduleCardControl!
+    
     private var mealCollection: MealCollection! { didSet {
         breakfastCard.data  = mealCollection.breakfastData
         lunchCard.data      = mealCollection.lunchData
@@ -22,7 +23,7 @@ class ScheduleViewController: UIViewController
     
     @IBAction func onScheduleCardButton(_ sender: ScheduleCardControl)
     {
-        selectedType = sender.data.type
+        selectedCard = sender
         performSegue(withIdentifier: SegueIdentifier.mealDetail, sender: self)
     }
     
@@ -33,7 +34,8 @@ class ScheduleViewController: UIViewController
             guard let destinationVC = segue.destination as? MealDetailViewController
             else { return }
             destinationVC.collection = mealCollection
-            destinationVC.type = selectedType
+            destinationVC.type = selectedCard.data.type
+            destinationVC.imageShowcase = selectedCard.image
         }
     }
     

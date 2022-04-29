@@ -31,36 +31,9 @@ class MealDetailViewController: UIViewController, TimePickerViewDelegate
     
     var collection: MealCollection?
     
+    var imageShowcase: UIImage?
+    
     private var currentData: MealData?
-        
-    private func contentChanged()
-    {
-        if (type == .breakfast)
-        {
-            currentData = collection?.breakfastData
-            goalsView1.title = "Good Interval to Dinner"
-            goalsView2.title = "Good Interval to Lunch"
-            descriptionLabel.text = "Carbohydrates and protein are essential for breakfast. Make sure to eat just enough so your body doesn't get heavy during the day."
-        }
-        if (type == .lunch)
-        {
-            currentData = collection?.lunchData
-            goalsView1.title = "Good Interval to Breakfast"
-            goalsView2.title = "Good Interval to Dinner"
-            descriptionLabel.text = "When taking a lunch, make sure to have a good mix of all the good groups that provide macro and micronutrients."
-        }
-        if (type == .dinner)
-        {
-            currentData = collection?.dinnerData
-            goalsView1.title = "Good Interval to Lunch"
-            goalsView2.title = "Good Interval to Breakfast"
-            descriptionLabel.text = "Your dinner could be the same as lunch or something different but lesser than lunch. Don't forget macro and micronutrients."
-        }
-        
-        titleLabel?.text = "\(currentData!.type)".capitalized
-        planHavingSwitch?.rightSwitch.isOn = currentData?.skipped == false
-        timeScheduleControl?.detail = currentData?.time.toString("hh:mm aa")
-    }
     
     override func viewDidLoad()
     {
@@ -127,6 +100,35 @@ class MealDetailViewController: UIViewController, TimePickerViewDelegate
     {
         indicator.rightImageView.tintColor = good ? .systemGreen : .systemRed
         indicator.indicator = UIImage(systemName: good ? "checkmark.square.fill" : "exclamationmark.square.fill")
+    }
+    
+    private func contentChanged()
+    {
+        if (type == .breakfast)
+        {
+            currentData = collection?.breakfastData
+            goalsView1.title = "Good Interval to Dinner"
+            goalsView2.title = "Good Interval to Lunch"
+            descriptionLabel.text = "Carbohydrates and protein are essential for breakfast. Make sure to eat just enough so your body doesn't get heavy during the day."
+        }
+        if (type == .lunch)
+        {
+            currentData = collection?.lunchData
+            goalsView1.title = "Good Interval to Breakfast"
+            goalsView2.title = "Good Interval to Dinner"
+            descriptionLabel.text = "When taking a lunch, make sure to have a good mix of all the good groups that provide macro and micronutrients."
+        }
+        if (type == .dinner)
+        {
+            currentData = collection?.dinnerData
+            goalsView1.title = "Good Interval to Lunch"
+            goalsView2.title = "Good Interval to Breakfast"
+            descriptionLabel.text = "Your dinner could be the same as lunch or something different but lesser than lunch. Don't forget macro and micronutrients."
+        }
+        imageView.image = imageShowcase
+        titleLabel?.text = "\(currentData!.type)".capitalized
+        planHavingSwitch?.rightSwitch.isOn = currentData?.skipped == false
+        timeScheduleControl?.detail = currentData?.time.toString("hh:mm aa")
     }
     
     func displayTimePicker(_ display: Bool)

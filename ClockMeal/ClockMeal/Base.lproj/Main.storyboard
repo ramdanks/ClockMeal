@@ -73,13 +73,13 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KGu-d4-gyQ">
-                                        <rect key="frame" x="100" y="394" width="190" height="40"/>
+                                        <rect key="frame" x="100" y="398" width="190" height="40"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="rCI-hO-Ktw"/>
                                         </constraints>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="gray" title="Skip This Meal">
-                                            <color key="baseBackgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="baseBackgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </buttonConfiguration>
                                         <connections>
                                             <action selector="onSkipMealButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="e4U-rB-g4p"/>
@@ -99,7 +99,7 @@
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="KGu-d4-gyQ" secondAttribute="bottom" constant="56" id="1am-mB-3bb"/>
+                                    <constraint firstAttribute="bottom" secondItem="KGu-d4-gyQ" secondAttribute="bottom" constant="52" id="1am-mB-3bb"/>
                                     <constraint firstItem="tEn-wV-gud" firstAttribute="top" secondItem="yDg-Yg-hPe" secondAttribute="top" constant="76" id="5T5-wL-hEv"/>
                                     <constraint firstItem="Nwb-75-IsY" firstAttribute="top" secondItem="RYQ-or-TzG" secondAttribute="bottom" constant="12" id="7eK-ig-wEF"/>
                                     <constraint firstItem="kTx-q1-fHJ" firstAttribute="centerX" secondItem="yDg-Yg-hPe" secondAttribute="centerX" id="9kr-1K-WAZ"/>
@@ -122,7 +122,7 @@
                                     <constraint firstItem="KGu-d4-gyQ" firstAttribute="centerX" secondItem="yDg-Yg-hPe" secondAttribute="centerX" id="cXc-cA-jqz"/>
                                     <constraint firstAttribute="trailing" secondItem="KGu-d4-gyQ" secondAttribute="trailing" constant="100" id="j1w-Mj-EkO"/>
                                     <constraint firstItem="RYQ-or-TzG" firstAttribute="centerX" secondItem="yDg-Yg-hPe" secondAttribute="centerX" id="oPV-Qy-ZxR"/>
-                                    <constraint firstItem="KGu-d4-gyQ" firstAttribute="top" secondItem="kTx-q1-fHJ" secondAttribute="bottom" constant="12" id="qQF-mK-9Hu"/>
+                                    <constraint firstItem="KGu-d4-gyQ" firstAttribute="top" secondItem="kTx-q1-fHJ" secondAttribute="bottom" constant="16" id="qQF-mK-9Hu"/>
                                     <constraint firstItem="KGu-d4-gyQ" firstAttribute="leading" secondItem="yDg-Yg-hPe" secondAttribute="leading" constant="100" id="rfl-iF-0l9"/>
                                     <constraint firstAttribute="bottom" secondItem="UKc-xE-xgt" secondAttribute="bottom" id="ukQ-sm-tVC"/>
                                     <constraint firstAttribute="trailing" secondItem="UKc-xE-xgt" secondAttribute="trailing" id="vwB-UR-EJi"/>
@@ -264,10 +264,10 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iys-XZ-FQK" userLabel="Breakfast Control" customClass="ScheduleCardControl" customModule="ClockMeal" customModuleProvider="target">
-                                <rect key="frame" x="24" y="110" width="342" height="65"/>
+                                <rect key="frame" x="24" y="110" width="342" height="100"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="65" id="xUp-Wh-SYy"/>
+                                    <constraint firstAttribute="height" constant="100" id="xUp-Wh-SYy"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -284,10 +284,10 @@
                                 </connections>
                             </view>
                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hnK-9F-ovH" userLabel="Lunch Control" customClass="ScheduleCardControl" customModule="ClockMeal" customModuleProvider="target">
-                                <rect key="frame" x="24" y="187" width="342" height="65"/>
+                                <rect key="frame" x="24" y="222" width="342" height="100"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="65" id="a2U-CM-vS9"/>
+                                    <constraint firstAttribute="height" constant="100" id="a2U-CM-vS9"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -304,10 +304,10 @@
                                 </connections>
                             </view>
                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MSB-h3-KkH" userLabel="Dinner Control" customClass="ScheduleCardControl" customModule="ClockMeal" customModuleProvider="target">
-                                <rect key="frame" x="24" y="264" width="342" height="65"/>
+                                <rect key="frame" x="24" y="334" width="342" height="100"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="65" id="5Ob-N7-1hn"/>
+                                    <constraint firstAttribute="height" constant="100" id="5Ob-N7-1hn"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -324,20 +324,20 @@
                                 </connections>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lnm-y5-qiv">
-                                <rect key="frame" x="24" y="345" width="366" height="2"/>
+                                <rect key="frame" x="24" y="450" width="366" height="2"/>
                                 <color key="backgroundColor" systemColor="systemGray4Color"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="2" id="hwj-mF-QEH"/>
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Template Schedule" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Odu-Bj-iaL">
-                                <rect key="frame" x="24" y="355" width="188" height="26"/>
+                                <rect key="frame" x="24" y="460" width="188" height="26"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="21"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Eaf-MX-BKr">
-                                <rect key="frame" x="24" y="397" width="342" height="40"/>
+                                <rect key="frame" x="24" y="502" width="342" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="hrt-5M-Z48"/>
                                 </constraints>
@@ -345,7 +345,7 @@
                                 <buttonConfiguration key="configuration" style="filled" title="Repeat on Previous Least Issue"/>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qHl-AJ-gp8">
-                                <rect key="frame" x="24" y="449" width="342" height="40"/>
+                                <rect key="frame" x="24" y="554" width="342" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="40" id="CCh-p2-YZ4"/>
                                     <constraint firstAttribute="height" constant="40" id="cpf-KK-Uwu"/>
@@ -354,7 +354,7 @@
                                 <buttonConfiguration key="configuration" style="filled" title="Repeat Previous Day"/>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A35-WU-CEd">
-                                <rect key="frame" x="24" y="501" width="342" height="40"/>
+                                <rect key="frame" x="24" y="606" width="342" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="8Y1-je-9Pc"/>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="40" id="JND-cd-jqL"/>
@@ -438,7 +438,7 @@
                                         </userDefinedRuntimeAttributes>
                                     </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lunch" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sfo-6B-NC7">
-                                        <rect key="frame" x="24" y="24" width="366" height="43"/>
+                                        <rect key="frame" x="32" y="32" width="358" height="43"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="36"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
@@ -456,7 +456,7 @@
                                     <constraint firstAttribute="bottom" secondItem="POl-VQ-szf" secondAttribute="bottom" constant="32" id="8Rs-sO-77t"/>
                                     <constraint firstAttribute="trailing" secondItem="POl-VQ-szf" secondAttribute="trailing" constant="32" id="HRQ-u9-x32"/>
                                     <constraint firstItem="sHM-Hy-H2u" firstAttribute="leading" secondItem="gLp-Rj-4eZ" secondAttribute="leading" id="IyP-hC-qId"/>
-                                    <constraint firstItem="Sfo-6B-NC7" firstAttribute="leading" secondItem="gLp-Rj-4eZ" secondAttribute="leading" constant="24" id="NmM-ph-9XV"/>
+                                    <constraint firstItem="Sfo-6B-NC7" firstAttribute="leading" secondItem="gLp-Rj-4eZ" secondAttribute="leading" constant="32" id="NmM-ph-9XV"/>
                                     <constraint firstItem="XCZ-ly-9yO" firstAttribute="top" secondItem="gLp-Rj-4eZ" secondAttribute="top" id="Ob8-5C-EoV"/>
                                     <constraint firstAttribute="trailing" secondItem="Sfo-6B-NC7" secondAttribute="trailing" id="PvX-g7-TEH"/>
                                     <constraint firstAttribute="bottom" secondItem="sHM-Hy-H2u" secondAttribute="bottom" id="Qix-vg-Wlp"/>
@@ -465,7 +465,7 @@
                                     <constraint firstItem="sHM-Hy-H2u" firstAttribute="top" secondItem="gLp-Rj-4eZ" secondAttribute="top" id="cVO-LF-h13"/>
                                     <constraint firstItem="POl-VQ-szf" firstAttribute="leading" secondItem="gLp-Rj-4eZ" secondAttribute="leading" constant="32" id="lWG-PG-8Dp"/>
                                     <constraint firstAttribute="height" constant="260" id="rr2-fb-RVb"/>
-                                    <constraint firstItem="Sfo-6B-NC7" firstAttribute="top" secondItem="gLp-Rj-4eZ" secondAttribute="top" constant="24" id="wgw-ce-wLe"/>
+                                    <constraint firstItem="Sfo-6B-NC7" firstAttribute="top" secondItem="gLp-Rj-4eZ" secondAttribute="top" constant="32" id="wgw-ce-wLe"/>
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Action Planning" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="31V-lL-VSa">
@@ -687,17 +687,17 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PKJ-CY-UGT">
-                                <rect key="frame" x="24" y="110" width="342" height="250"/>
+                                <rect key="frame" x="24" y="110" width="342" height="300"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="snack" translatesAutoresizingMaskIntoConstraints="NO" id="AWC-6T-yPr">
-                                        <rect key="frame" x="0.0" y="0.0" width="342" height="250"/>
-                                    </imageView>
-                                    <view clipsSubviews="YES" alpha="0.84999999999999998" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tzf-RT-a7I" customClass="Gradient" customModule="ClockMeal" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="342" height="250"/>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                    <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" translatesAutoresizingMaskIntoConstraints="NO" id="km8-qf-6rq">
+                                        <rect key="frame" x="0.0" y="0.0" width="342" height="300"/>
+                                    </scrollView>
+                                    <view alpha="0.90000000000000002" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pus-0R-ByQ" customClass="Gradient" customModule="ClockMeal" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="342" height="300"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="color" keyPath="startColor">
-                                                <color key="value" red="0.0" green="0.0" blue="0.0" alpha="0.60065202067669177" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="value" red="0.0" green="0.0" blue="0.0" alpha="0.59955063439849621" colorSpace="custom" customColorSpace="sRGB"/>
                                             </userDefinedRuntimeAttribute>
                                             <userDefinedRuntimeAttribute type="color" keyPath="endColor">
                                                 <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -708,31 +708,30 @@
                                             <userDefinedRuntimeAttribute type="number" keyPath="endLocation">
                                                 <real key="value" value="1"/>
                                             </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="boolean" keyPath="horizontalMode" value="NO"/>
-                                            <userDefinedRuntimeAttribute type="boolean" keyPath="diagonalMode" value="NO"/>
                                         </userDefinedRuntimeAttributes>
                                     </view>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="When picking a snacks, focus more on nutrients instead of calories. You may choose whole foods where possible." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="koZ-82-8Yi">
-                                        <rect key="frame" x="24" y="168.66666666666669" width="294" height="57.333333333333343"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Snack should focus more on nutrients instead of calories. You may choose whole foods where possible." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="koZ-82-8Yi">
+                                        <rect key="frame" x="32" y="210.66666666666669" width="278" height="57.333333333333314"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="rHE-gE-bF7">
+                                        <rect key="frame" x="114.66666666666666" y="32" width="113" height="25"/>
+                                    </pageControl>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
-                                    <constraint firstItem="AWC-6T-yPr" firstAttribute="top" secondItem="PKJ-CY-UGT" secondAttribute="top" id="1IF-bQ-Pq9"/>
-                                    <constraint firstAttribute="trailing" secondItem="koZ-82-8Yi" secondAttribute="trailing" constant="24" id="9YR-bG-daB"/>
-                                    <constraint firstAttribute="bottom" secondItem="tzf-RT-a7I" secondAttribute="bottom" id="DiA-6u-7GM"/>
-                                    <constraint firstItem="koZ-82-8Yi" firstAttribute="leading" secondItem="PKJ-CY-UGT" secondAttribute="leading" constant="24" id="Y4k-uV-lx3"/>
-                                    <constraint firstAttribute="height" constant="250" id="bl7-Yo-GT4"/>
-                                    <constraint firstItem="tzf-RT-a7I" firstAttribute="leading" secondItem="PKJ-CY-UGT" secondAttribute="leading" id="cH2-4Y-Dsy"/>
-                                    <constraint firstAttribute="trailing" secondItem="tzf-RT-a7I" secondAttribute="trailing" id="dIy-GI-TsG"/>
-                                    <constraint firstAttribute="bottom" secondItem="koZ-82-8Yi" secondAttribute="bottom" constant="24" id="huB-A6-Jfs"/>
-                                    <constraint firstAttribute="bottom" secondItem="AWC-6T-yPr" secondAttribute="bottom" id="iAd-lx-7ql"/>
-                                    <constraint firstItem="tzf-RT-a7I" firstAttribute="top" secondItem="PKJ-CY-UGT" secondAttribute="top" id="j4N-L8-37L"/>
-                                    <constraint firstItem="AWC-6T-yPr" firstAttribute="leading" secondItem="PKJ-CY-UGT" secondAttribute="leading" id="w4B-Gs-e4a"/>
-                                    <constraint firstAttribute="trailing" secondItem="AWC-6T-yPr" secondAttribute="trailing" id="xF3-Rc-eou"/>
+                                    <constraint firstAttribute="bottom" secondItem="km8-qf-6rq" secondAttribute="bottom" id="5LT-gE-0mC"/>
+                                    <constraint firstItem="rHE-gE-bF7" firstAttribute="centerX" secondItem="PKJ-CY-UGT" secondAttribute="centerX" id="93d-6C-8W1"/>
+                                    <constraint firstAttribute="trailing" secondItem="km8-qf-6rq" secondAttribute="trailing" id="9Fl-2Y-k4c"/>
+                                    <constraint firstAttribute="trailing" secondItem="koZ-82-8Yi" secondAttribute="trailing" constant="32" id="9YR-bG-daB"/>
+                                    <constraint firstItem="km8-qf-6rq" firstAttribute="top" secondItem="PKJ-CY-UGT" secondAttribute="top" id="Cqr-pe-Q22"/>
+                                    <constraint firstItem="rHE-gE-bF7" firstAttribute="top" secondItem="PKJ-CY-UGT" secondAttribute="top" constant="32" id="TBs-I7-T4W"/>
+                                    <constraint firstItem="km8-qf-6rq" firstAttribute="leading" secondItem="PKJ-CY-UGT" secondAttribute="leading" id="Ve8-gn-EZO"/>
+                                    <constraint firstItem="koZ-82-8Yi" firstAttribute="leading" secondItem="PKJ-CY-UGT" secondAttribute="leading" constant="32" id="Y4k-uV-lx3"/>
+                                    <constraint firstAttribute="height" constant="300" id="bl7-Yo-GT4"/>
+                                    <constraint firstAttribute="bottom" secondItem="koZ-82-8Yi" secondAttribute="bottom" constant="32" id="huB-A6-Jfs"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -744,7 +743,7 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="C9n-F1-R5S" customClass="InfoCardView" customModule="ClockMeal" customModuleProvider="target">
-                                <rect key="frame" x="24" y="384" width="159" height="157"/>
+                                <rect key="frame" x="24" y="434" width="159" height="157"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="C9n-F1-R5S" secondAttribute="height" multiplier="159:157" id="4LE-Ii-tQ7"/>
@@ -763,7 +762,7 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VhZ-Q6-Pfk" customClass="InfoCardView" customModule="ClockMeal" customModuleProvider="target">
-                                <rect key="frame" x="207" y="384" width="159" height="157"/>
+                                <rect key="frame" x="207" y="434" width="159" height="157"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="157" id="Eqq-hw-1wW"/>
@@ -781,7 +780,7 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vsU-Tz-xeC">
-                                <rect key="frame" x="24" y="565" width="342" height="40"/>
+                                <rect key="frame" x="24" y="615" width="342" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="tml-QT-HHh"/>
                                 </constraints>
@@ -808,6 +807,12 @@
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Snacks" image="takeoutbag.and.cup.and.straw" catalog="system" selectedImage="takeoutbag.and.cup.and.straw.fill" id="lqb-Xz-Vs2"/>
+                    <connections>
+                        <outlet property="descriptionLabel" destination="koZ-82-8Yi" id="oo1-O6-YBl"/>
+                        <outlet property="gradient" destination="pus-0R-ByQ" id="LVw-Yp-01e"/>
+                        <outlet property="pageControl" destination="rHE-gE-bF7" id="xV2-tb-5KU"/>
+                        <outlet property="scrollView" destination="km8-qf-6rq" id="nhu-z9-Flw"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="e6r-VP-D13" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -854,7 +859,6 @@
         <image name="lunch" width="5503" height="3745"/>
         <image name="morning" width="3379" height="5068"/>
         <image name="plus.square.fill.on.square.fill" catalog="system" width="128" height="113"/>
-        <image name="snack" width="6000" height="4000"/>
         <image name="takeoutbag.and.cup.and.straw" catalog="system" width="128" height="110"/>
         <image name="takeoutbag.and.cup.and.straw.fill" catalog="system" width="128" height="110"/>
         <systemColor name="systemBackgroundColor">
