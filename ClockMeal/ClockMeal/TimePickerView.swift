@@ -76,7 +76,7 @@ class TimePickerView: UIView
     
     init()
     {
-        super.init(frame: CGRect(x: 0, y: 0, width: 326, height: 530))
+        super.init(frame: CGRect(x: 0, y: 0, width: 330, height: 530))
         loadNib()
     }
     

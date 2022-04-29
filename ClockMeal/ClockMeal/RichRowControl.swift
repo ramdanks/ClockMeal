@@ -4,10 +4,12 @@ import UIKit
 @IBDesignable
 class RichRowControl: UIControl
 {
-    
+    @IBOutlet var view: UIView!
     @IBOutlet weak var detailLabel: UILabel!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var logoImageView: UIImageView!
+    
+    var previousColors: [UIColor] = []
     
     @IBInspectable var detail: String! { didSet {
         detailLabel.text = detail
@@ -40,5 +42,42 @@ class RichRowControl: UIControl
         view.frame = self.bounds
         addSubview(view)
         return view
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?)
+    {
+        UIView.transition(with: self, duration: 0.07, options: .transitionCrossDissolve, animations: {
+            self.view.backgroundColor = .black
+            self.layer.borderColor = UIColor.white.cgColor
+            for view in self.view.subviews
+            {
+                if let label = view as? UILabel
+                {
+                    self.previousColors.append(label.textColor)
+                    label.textColor = .white
+                }
+                if let imview = view as? UIImageView
+                {
+                    self.previousColors.append(imview.tintColor)
+                    imview.tintColor = .white
+                }
+            }
+        })
+        super.touchesBegan(touches, with: event)
+    }
+
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?)
+    {
+        UIView.transition(with: titleLabel, duration: 0.5, options: .transitionCrossDissolve, animations: {
+            self.view.backgroundColor = .white
+            self.layer.borderColor = UIColor.black.cgColor
+            for (i, view) in self.view.subviews.enumerated()
+            {
+                if let label = view as? UILabel         { label.textColor = self.previousColors[i] }
+                if let imview = view as? UIImageView    { imview.tintColor = self.previousColors[i] }
+            }
+        })
+        previousColors.removeAll()
+        super.touchesEnded(touches, with: event)
     }
 }

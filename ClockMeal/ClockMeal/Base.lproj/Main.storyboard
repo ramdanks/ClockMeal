@@ -474,7 +474,7 @@
                                 <color key="textColor" systemColor="systemGrayColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Arc-sf-bes" customClass="RichRowControl" customModule="ClockMeal" customModuleProvider="target">
+                            <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Arc-sf-bes" customClass="RichRowControl" customModule="ClockMeal" customModuleProvider="target">
                                 <rect key="frame" x="24" y="456" width="342" height="44"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>

@@ -15,7 +15,7 @@ class MealDetailViewController: UIViewController, TimePickerViewDelegate
     
     var timePickerView: TimePickerView = {
         let view = TimePickerView()
-        view.layer.cornerRadius = 10
+        view.layer.cornerRadius = 20
         view.layer.masksToBounds = true
         return view
     }()
@@ -23,7 +23,7 @@ class MealDetailViewController: UIViewController, TimePickerViewDelegate
     var darkenView: UIView = {
         let view = UIView()
         view.backgroundColor = .black
-        view.alpha = 0.7
+        view.alpha = 0.75
         return view
     }()
     
