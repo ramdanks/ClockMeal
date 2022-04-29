@@ -21,7 +21,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Timing Goals" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Ny-b0-VL2">
-                    <rect key="frame" x="99" y="16" width="128" height="26"/>
+                    <rect key="frame" x="99" y="24" width="128" height="26"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="26" id="Ofe-Fe-KPC"/>
                         <constraint firstAttribute="width" constant="128" id="wba-eg-weS"/>
@@ -31,7 +31,7 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ljF-5t-mRa" customClass="RichRowIndicatorView" customModule="ClockMeal" customModuleProvider="target">
-                    <rect key="frame" x="16" y="108" width="294" height="38"/>
+                    <rect key="frame" x="16" y="116" width="294" height="38"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     <constraints>
                         <constraint firstAttribute="width" secondItem="ljF-5t-mRa" secondAttribute="height" multiplier="342:44" id="FTt-Ul-dDH"/>
@@ -46,15 +46,16 @@
                     </userDefinedRuntimeAttributes>
                 </view>
                 <datePicker contentMode="scaleToFill" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="1" style="wheels" translatesAutoresizingMaskIntoConstraints="NO" id="6I2-No-N8T">
-                    <rect key="frame" x="0.0" y="207.5" width="326" height="216"/>
+                    <rect key="frame" x="0.0" y="215.5" width="326" height="200.5"/>
                     <connections>
                         <action selector="onTimePicker:" destination="-1" eventType="valueChanged" id="CEy-rU-Qdx"/>
                     </connections>
                 </datePicker>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8b5-1s-i0l">
-                    <rect key="frame" x="18" y="431.5" width="290" height="40"/>
+                    <rect key="frame" x="73" y="432" width="180" height="34"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="40" id="Gr9-bk-iKl"/>
+                        <constraint firstAttribute="height" constant="34" id="Gr9-bk-iKl"/>
+                        <constraint firstAttribute="width" constant="180" id="Hhm-AY-fDE"/>
                     </constraints>
                     <state key="normal" title="Button"/>
                     <buttonConfiguration key="configuration" style="filled" title="Confirm"/>
@@ -63,41 +64,44 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vst-8Q-QmD">
-                    <rect key="frame" x="0.0" y="479.5" width="326" height="34.5"/>
+                    <rect key="frame" x="0.0" y="474" width="326" height="32"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="32" id="7ok-5S-xSy"/>
+                    </constraints>
                     <state key="normal" title="Button"/>
-                    <buttonConfiguration key="configuration" style="plain" title="Cancel Editing"/>
+                    <buttonConfiguration key="configuration" style="plain" title="Discard Changes"/>
                     <connections>
                         <action selector="onCancelButton:" destination="-1" eventType="touchUpInside" id="0vl-jb-9cC"/>
                     </connections>
                 </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Scheduled Time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KnG-ef-2SL">
-                    <rect key="frame" x="15" y="175" width="117.5" height="19.5"/>
+                    <rect key="frame" x="15" y="183" width="117.5" height="19.5"/>
                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="04:06 PM" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9dT-ad-rwK">
-                    <rect key="frame" x="239" y="175" width="72" height="19.5"/>
+                    <rect key="frame" x="239" y="183" width="72" height="19.5"/>
                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                     <color key="textColor" systemColor="systemGrayColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0hm-j7-IWp" userLabel="Seperator">
-                    <rect key="frame" x="0.0" y="206.5" width="326" height="1"/>
+                    <rect key="frame" x="0.0" y="214.5" width="326" height="1"/>
                     <color key="backgroundColor" systemColor="systemGray4Color"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="1" id="p7v-Jg-z6Z"/>
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dI9-lC-B7L" userLabel="Seperator">
-                    <rect key="frame" x="0.0" y="162" width="326" height="1"/>
+                    <rect key="frame" x="0.0" y="170" width="326" height="1"/>
                     <color key="backgroundColor" systemColor="systemGray4Color"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="1" id="thf-e1-vF1"/>
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lPx-Ij-d7t" customClass="RichRowIndicatorView" customModule="ClockMeal" customModuleProvider="target">
-                    <rect key="frame" x="15" y="58" width="296" height="38"/>
+                    <rect key="frame" x="15" y="66" width="296" height="38"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     <constraints>
                         <constraint firstAttribute="width" secondItem="lPx-Ij-d7t" secondAttribute="height" multiplier="342:44" id="miI-Lt-MQJ"/>
@@ -114,10 +118,9 @@
             </subviews>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
-                <constraint firstAttribute="trailing" secondItem="8b5-1s-i0l" secondAttribute="trailing" constant="18" id="0bF-kP-phj"/>
                 <constraint firstItem="dI9-lC-B7L" firstAttribute="top" secondItem="ljF-5t-mRa" secondAttribute="bottom" constant="16" id="49c-cu-mAq"/>
                 <constraint firstAttribute="trailing" secondItem="0hm-j7-IWp" secondAttribute="trailing" id="95y-oY-ewV"/>
-                <constraint firstAttribute="bottom" secondItem="Vst-8Q-QmD" secondAttribute="bottom" constant="16" id="9LT-4r-3ZH"/>
+                <constraint firstAttribute="bottom" secondItem="Vst-8Q-QmD" secondAttribute="bottom" constant="24" id="9LT-4r-3ZH"/>
                 <constraint firstItem="Vst-8Q-QmD" firstAttribute="leading" secondItem="mP8-Cs-ITp" secondAttribute="leading" id="EaG-fr-Dme"/>
                 <constraint firstItem="KnG-ef-2SL" firstAttribute="leading" secondItem="mP8-Cs-ITp" secondAttribute="leading" constant="15" id="IhC-Mj-5mx"/>
                 <constraint firstItem="ljF-5t-mRa" firstAttribute="leading" secondItem="mP8-Cs-ITp" secondAttribute="leading" constant="16" id="JQo-Oq-Pr7"/>
@@ -132,13 +135,13 @@
                 <constraint firstAttribute="trailing" secondItem="dI9-lC-B7L" secondAttribute="trailing" id="Xh2-39-fvG"/>
                 <constraint firstItem="0hm-j7-IWp" firstAttribute="top" secondItem="KnG-ef-2SL" secondAttribute="bottom" constant="12" id="XtH-Ox-pTq"/>
                 <constraint firstItem="6I2-No-N8T" firstAttribute="top" secondItem="0hm-j7-IWp" secondAttribute="bottom" id="eDN-tB-ic8"/>
-                <constraint firstItem="8b5-1s-i0l" firstAttribute="top" secondItem="6I2-No-N8T" secondAttribute="bottom" constant="8" id="f4X-jR-0TX"/>
-                <constraint firstItem="7Ny-b0-VL2" firstAttribute="top" secondItem="mP8-Cs-ITp" secondAttribute="top" constant="16" id="j6I-6O-Psv"/>
+                <constraint firstItem="8b5-1s-i0l" firstAttribute="top" secondItem="6I2-No-N8T" secondAttribute="bottom" constant="16" id="f4X-jR-0TX"/>
+                <constraint firstItem="7Ny-b0-VL2" firstAttribute="top" secondItem="mP8-Cs-ITp" secondAttribute="top" constant="24" id="j6I-6O-Psv"/>
                 <constraint firstItem="9dT-ad-rwK" firstAttribute="top" secondItem="dI9-lC-B7L" secondAttribute="bottom" constant="12" id="kY7-Z9-6st"/>
                 <constraint firstItem="0hm-j7-IWp" firstAttribute="top" secondItem="9dT-ad-rwK" secondAttribute="bottom" constant="12" id="lP5-xQ-ECh"/>
                 <constraint firstAttribute="trailing" secondItem="ljF-5t-mRa" secondAttribute="trailing" constant="16" id="n3i-dU-fUI"/>
+                <constraint firstItem="8b5-1s-i0l" firstAttribute="centerX" secondItem="mP8-Cs-ITp" secondAttribute="centerX" id="nxj-aD-iWZ"/>
                 <constraint firstItem="ljF-5t-mRa" firstAttribute="top" secondItem="lPx-Ij-d7t" secondAttribute="bottom" constant="12" id="pQX-r8-ddB"/>
-                <constraint firstItem="8b5-1s-i0l" firstAttribute="leading" secondItem="mP8-Cs-ITp" secondAttribute="leading" constant="18" id="q7s-LZ-2Bc"/>
                 <constraint firstItem="7Ny-b0-VL2" firstAttribute="centerX" secondItem="mP8-Cs-ITp" secondAttribute="centerX" id="rCH-a0-kpL"/>
                 <constraint firstItem="6I2-No-N8T" firstAttribute="trailing" secondItem="mP8-Cs-ITp" secondAttribute="trailing" id="uEC-D1-0gp"/>
                 <constraint firstAttribute="trailing" secondItem="lPx-Ij-d7t" secondAttribute="trailing" constant="15" id="wBj-63-mfC"/>

@@ -845,18 +845,18 @@
         <image name="b.square.fill" catalog="system" width="128" height="114"/>
         <image name="book" catalog="system" width="128" height="99"/>
         <image name="book.fill" catalog="system" width="128" height="95"/>
-        <image name="breakfast" width="3024" height="4032"/>
+        <image name="breakfast" width="1024" height="683"/>
         <image name="clock" catalog="system" width="128" height="121"/>
         <image name="clock.badge.exclamationmark.fill" catalog="system" width="128" height="113"/>
         <image name="clock.fill" catalog="system" width="128" height="121"/>
         <image name="d.square.fill" catalog="system" width="128" height="114"/>
-        <image name="dinner" width="5472" height="3648"/>
+        <image name="dinner" width="1024" height="683"/>
         <image name="exclamationmark.triangle.fill" catalog="system" width="128" height="112"/>
         <image name="hourglass.tophalf.fill" catalog="system" width="102" height="128"/>
         <image name="house" catalog="system" width="128" height="106"/>
         <image name="house.fill" catalog="system" width="128" height="106"/>
         <image name="l.square.fill" catalog="system" width="128" height="114"/>
-        <image name="lunch" width="5503" height="3745"/>
+        <image name="lunch" width="1024" height="683"/>
         <image name="morning" width="3379" height="5068"/>
         <image name="plus.square.fill.on.square.fill" catalog="system" width="128" height="113"/>
         <image name="takeoutbag.and.cup.and.straw" catalog="system" width="128" height="110"/>
