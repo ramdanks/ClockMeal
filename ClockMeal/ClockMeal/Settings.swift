@@ -9,12 +9,14 @@ struct UserDefault<T: Codable>
     {
         get
         {
-            
             if let data = UserDefaults.standard.object(forKey: key) as? Data,
                let user = try? PropertyListDecoder().decode(T.self, from: data)
-                { return user }
-                return  defaultValue
+            {
+                return user
+            }
+            return defaultValue
         }
+        
         set
         {
             if let encoded = try? PropertyListEncoder().encode(newValue)
@@ -32,16 +34,21 @@ struct Response: Codable
 
 enum Settings
 {
-    @UserDefault(key: "0", defaultValue: MealCollection(
-        breakfastData:  MealData(type: .breakfast,  time: 08 * 60 * 60, skipped: false),
-        lunchData:      MealData(type: .lunch,      time: 13 * 60 * 60, skipped: false),
-        dinnerData:     MealData(type: .dinner,     time: 19 * 60 * 60, skipped: false))
+    static var mealDataCollectionDefault = MealCollection(
+        breakfastData:  MealData(type: .breakfast,  time: 08 * 60 * 60, scheduled: true, issues: [], date: Date()),
+        lunchData:      MealData(type: .lunch,      time: 13 * 60 * 60, scheduled: true, issues: [], date: Date()),
+        dinnerData:     MealData(type: .dinner,     time: 19 * 60 * 60, scheduled: true, issues: [], date: Date())
     )
-    static var mealDataCollection: MealCollection
     
-    @UserDefault(key: "1", defaultValue: nil)
-    static var currentSession: MealType?
+    @UserDefault<MealCollection>(key: "0", defaultValue: mealDataCollectionDefault)
+    static var mealDataCollection
     
-    @UserDefault(key: "2", defaultValue: [])
-    static var responses: [Response]
+    @UserDefault<[Response]>(key: "1", defaultValue: [])
+    static var responses
+    
+    @UserDefault<MealCollection>(key: "2", defaultValue: mealDataCollectionDefault)
+    static var upcomingSchedule
+    
+    @UserDefault<Date>(key: "3", defaultValue: Date())
+    static var lastLogin
 }

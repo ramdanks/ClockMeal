@@ -2,6 +2,9 @@ import UIKit
 
 class ScheduleViewController: UIViewController
 {
+    /// 0 -> Today | 1 -> Upcoming Day
+    @IBOutlet weak var segmentedControl: UISegmentedControl!
+    
     @IBOutlet weak var breakfastCard: ScheduleCardControl!
     @IBOutlet weak var lunchCard: ScheduleCardControl!
     @IBOutlet weak var dinnerCard: ScheduleCardControl!
@@ -9,16 +12,18 @@ class ScheduleViewController: UIViewController
     private var selectedCard: ScheduleCardControl!
     
     private var mealCollection: MealCollection! { didSet {
-        breakfastCard.data  = mealCollection.breakfastData
-        lunchCard.data      = mealCollection.lunchData
-        dinnerCard.data     = mealCollection.dinnerData
+        mealCollection.breakfastData.issues = MealRules.issues(collection: mealCollection, forType: .breakfast)
+        mealCollection.lunchData.issues     = MealRules.issues(collection: mealCollection, forType: .lunch)
+        mealCollection.dinnerData.issues    = MealRules.issues(collection: mealCollection, forType: .dinner)
+        breakfastCard.data                  = mealCollection.breakfastData
+        dinnerCard.data                     = mealCollection.dinnerData
+        lunchCard.data                      = mealCollection.lunchData
     }}
     
     override func viewDidLoad()
     {
         super.viewDidLoad()
         mealCollection = Settings.mealDataCollection
-        refresh()
     }
     
     @IBAction func onScheduleCardButton(_ sender: ScheduleCardControl)
@@ -39,25 +44,48 @@ class ScheduleViewController: UIViewController
         }
     }
     
-    func refresh()
-    {
-        let bIssueCount = MealRules.issueCount(data: mealCollection.breakfastData, collection: mealCollection)
-        let lIssueCount = MealRules.issueCount(data: mealCollection.lunchData, collection: mealCollection)
-        let dIssueCount = MealRules.issueCount(data: mealCollection.dinnerData, collection: mealCollection)
-        
-        breakfastCard.info0 = "\(bIssueCount)"
-        lunchCard.info0 = "\(lIssueCount)"
-        dinnerCard.info0 = "\(dIssueCount)"
-    }
-    
     @IBAction func unwind(_ segue: UIStoryboardSegue)
     {
         if (segue.identifier == SegueIdentifier.mealDetailUnwind)
         {
             let vc = segue.source as! MealDetailViewController
             mealCollection = vc.collection
-            refresh()
+            setSettingCollection(mealCollection)
         }
+    }
+    
+    @IBAction func onSegmentedChange(_ sender: UISegmentedControl)
+    {
+        mealCollection = sender.selectedSegmentIndex == 0 ? Settings.mealDataCollection : Settings.upcomingSchedule
+    }
+    
+    @IBAction func onRepeatLeastIssueButton(_ sender: Any) {
+    }
+    
+    @IBAction func onRepeatYesterdayButton(_ sender: Any) {
+    }
+    
+    @IBAction func onRevertDefaultButton(_ sender: Any)
+    {
+        let alert = UIAlertController(
+            title: "Revert Default",
+            message: "This will reset the currently running schedule. Are you sure want to continue?",
+            preferredStyle: .alert
+        )
+        
+        alert.addAction(UIAlertAction(title: "Revert My Schedule", style: .default, handler: { [self] action in
+            mealCollection = Settings.mealDataCollectionDefault
+            setSettingCollection(mealCollection)
+        }))
+        
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        present(alert, animated: true)
+    }
+    
+    private func setSettingCollection(_ collection: MealCollection)
+    {
+        if (segmentedControl.selectedSegmentIndex == 0) { Settings.mealDataCollection = collection }
+        if (segmentedControl.selectedSegmentIndex == 1) { Settings.upcomingSchedule = collection }
     }
 }
 

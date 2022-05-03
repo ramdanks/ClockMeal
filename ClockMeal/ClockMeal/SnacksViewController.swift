@@ -45,6 +45,21 @@ class SnacksViewController: UIViewController
         }
         scrollView.addSubview(gradient)
     }
+    
+    @IBAction func onGettingSnacksButton(_ sender: UIButton)
+    {
+        let alert = UIAlertController(
+            title: "Taking Snacks",
+            message: "I would like to report that i'm having a snack right now",
+            preferredStyle: .alert
+        )
+        alert.addAction(UIAlertAction(title: "Yes", style: .default) { _ in
+            let response = Response(type: .snack, date: Date(), skip: false)
+            Settings.responses.append(response)
+        })
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+        present(alert, animated: true)
+    }
 }
 
 extension SnacksViewController: UIScrollViewDelegate

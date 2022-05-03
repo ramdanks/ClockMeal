@@ -25,7 +25,8 @@ class ScheduleCardControl: UIControl
     }}
     
     var data: MealData! { didSet {
-        info1 = data.time.toString("hh:mm aa")
+        info0 = "\(data.issues.count)"
+        info1 = data.scheduled ? data.time.toString("hh:mm aa") : "Not Scheduled"
     }}
     
     override init(frame: CGRect)

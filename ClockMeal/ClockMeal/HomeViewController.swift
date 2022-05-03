@@ -2,7 +2,15 @@ import UIKit
 
 class HomeViewController: UIViewController
 {
+    enum State { case goingToday, lateToday, goingTomorrow, noSchedule }
+    
     override var preferredStatusBarStyle: UIStatusBarStyle { return .lightContent }
+    
+    @IBOutlet weak var bottomAlertLabel: UILabel!
+    @IBOutlet weak var sessionDoneView: UIView!
+    
+    @IBOutlet weak var takingMealButton: UIButton!
+    @IBOutlet weak var skipMealButton: UIButton!
     
     @IBOutlet weak var mealTitleLabel: UILabel!
     @IBOutlet weak var timerHourLabel: UILabel!
@@ -16,6 +24,10 @@ class HomeViewController: UIViewController
     @IBOutlet weak var lunchDetailView: RichRowDetailView!
     @IBOutlet weak var dinnerDetailView: RichRowDetailView!
     
+    var session: MealType?
+    var state: State?
+    var todayMajorMealResponse: [Response] = []
+    
     override func viewDidLoad()
     {
         super.viewDidLoad()
@@ -24,55 +36,33 @@ class HomeViewController: UIViewController
         timerMinuteLabel.font = UIFont.monospacedDigitSystemFont(ofSize: 62.0, weight: .regular)
         
         let date = Date()
-        let calendar = Calendar.current
-        let hour: TimeInterval = TimeInterval(calendar.component(.hour, from: date))
-        let minutes: TimeInterval = TimeInterval(calendar.component(.minute, from: date))
         
-        let now = hour * 60 * 60 + minutes * 60
+        var currSession: MealType? = nil
         
-        let collection = Settings.mealDataCollection
-        var session = Settings.currentSession
-        if (session == nil)
+        if (Calendar.current.isDateInToday(Settings.lastLogin))
         {
-            let a = now.rangeCappedDaily(to: collection.breakfastData.time)
-            let b = now.rangeCappedDaily(to: collection.lunchData.time)
-            let c = now.rangeCappedDaily(to: collection.dinnerData.time)
-            let closest = [a, b, c].min()
-            if (closest == a) { session = .breakfast }
-            if (closest == b) { session = .lunch }
-            if (closest == c) { session = .dinner }
-            Settings.currentSession = session
+            let responses = Settings.responses
+            // update today's session
+            for response in responses.reversed()
+            {
+                if (Calendar.current.isDate(date, inSameDayAs: response.date) == false) { break }
+                if (response.type != .snack) { todayMajorMealResponse.append(response) }
+            }
+            // find meal session based on last responses
+            let lastMealSession = todayMajorMealResponse.max(by: { $0.type.rawValue > $1.type.rawValue })?.type
+            currSession = whatNextSession(lastMealSession, schedule: Settings.mealDataCollection)
+        }
+        else
+        {
+            Settings.lastLogin = Date.now
+            let schedule = Settings.upcomingSchedule
+            let scheduleList = [schedule.breakfastData, schedule.lunchData, schedule.dinnerData]
+            
+            Settings.mealDataCollection = schedule
+            currSession = scheduleList.first(where: { $0.scheduled })?.type ?? .breakfast
         }
         
-        var data: MealData!
-        if (session == .breakfast) { data = collection.breakfastData }
-        if (session == .lunch)     { data = collection.lunchData }
-        if (session == .dinner)    { data = collection.dinnerData }
-        mealTitleLabel.text = "\(data.type)".capitalized
-
-        // check if different day
-        let responses = Settings.responses
-        if (responses.isEmpty == false)
-        {
-            let lastDate = responses.last!
-            let diff = Calendar.current.dateComponents([ .day ], from: date, to: lastDate.date)
-            // if different day then remove all respond
-            if (diff.day != 0)
-            {
-                Settings.responses.removeAll()
-                updateRespond(type: .breakfast, response: nil)
-                updateRespond(type: .lunch, response: nil)
-                updateRespond(type: .dinner, response: nil)
-            }
-            // retrieve saved response
-            else
-            {
-                for response in responses
-                {
-                    updateRespond(type: response.type, response: response)
-                }
-            }
-        }
+        updateViewOnSession(newSession: currSession!, newState: .goingToday)
         
         Timer.scheduledTimer(
             timeInterval: 0.5,
@@ -115,129 +105,248 @@ class HomeViewController: UIViewController
     
     @IBAction func onTakingMealButton(_ sender: UIButton)
     {
-        let titleAlert = "Take a Meal"
-        var alert: UIAlertController!
-        if (Settings.responses.last?.type == .dinner)
-        {
-            alert = UIAlertController(title: titleAlert, message: "You have responded enough for today. Comeback again tomorrow!", preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "Okay", style: .default, handler: nil))
-        }
-        else
-        {
-            alert = UIAlertController(title: titleAlert, message: "I declare that either i had a meal recently or going to take meal now", preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "Check In", style: .default, handler: { action in
-                self.nextSession(skip: false)
-            }))
-            alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
-        }
+        let alert = UIAlertController(
+            title: "Take a Meal",
+            message:"I declare that either i had a meal recently or going to take meal now",
+            preferredStyle: .alert
+        )
+        
+        alert.addAction(UIAlertAction(title: "Check In", style: .default, handler: { [self] action in
+            
+            let respond = Response(type: session!, date: Date(), skip: false)
+            todayMajorMealResponse.append(respond)
+            Settings.responses.append(respond)
+            
+        }))
+        
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        
         self.present(alert, animated: true, completion: nil)
     }
     
     @IBAction func onSkipMealButton(_ sender: UIButton)
     {
-        let titleAlert = "Skip Meal"
-        var alert: UIAlertController!
-        if (Settings.responses.last?.type == .dinner)
-        {
-            alert = UIAlertController(title: titleAlert, message: "You have responded enough for today. Comeback again tomorrow!", preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "Okay", style: .default, handler: nil))
-        }
-        else
-        {
-            alert = UIAlertController(title: titleAlert, message: "Skipping a meal introduce inconsistency which can be harmful than eating less or more with consistent timings. Are you sure you want to skip this session?", preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "I Understand The Risk", style: .default, handler: { action in
-                self.nextSession(skip: true)
-            }))
-            alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
-        }
+        let alert = UIAlertController(
+            title: "Skip Meal",
+            message: "Skipping a meal introduce inconsistency which can be harmful than eating less ormore with consistent timings. Are you sure you want to skip this session?",
+            preferredStyle: .alert
+        )
+        
+        alert.addAction(UIAlertAction(title: "I Understand The Risk", style: .default, handler: { [self] action in
+            
+            let respond = Response(type: session!, date: Date(), skip: true)
+            todayMajorMealResponse.append(respond)
+            Settings.responses.append(respond)
+            
+        }))
+        
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        
         self.present(alert, animated: true, completion: nil)
     }
     
-    func nextSession(skip: Bool)
+    func whatNextSession(_ session: MealType?, schedule: MealCollection) -> MealType?
     {
-        let currTypeSession = Settings.currentSession!
-        let respond = Response(type: currTypeSession, date: Date(), skip: skip)
-        Settings.responses.append(respond)
-        updateRespond(type: currTypeSession, response: respond)
+        if (session == .snack) { return .breakfast }
         
-        var nextTypeSession: MealType!
-        if (currTypeSession == .breakfast)
+        let scheduleList = [ schedule.breakfastData, schedule.lunchData, schedule.dinnerData ]
+        let sessionList: [MealType] = [ .breakfast, .lunch, .dinner ]
+        
+        if (scheduleList.contains(where: { $0.scheduled }))
         {
-            nextTypeSession = .lunch
-            imageView.image = UIImage(named: "day")
-        }
-        if (currTypeSession == .lunch)
-        {
-            nextTypeSession = .dinner
-            imageView.image = UIImage(named: "night")
-        }
-        if (currTypeSession == .dinner)
-        {
-            nextTypeSession = .breakfast
-            imageView.image = UIImage(named: "morning")
+            var nextSession = session
+            while (true)
+            {
+                nextSession = nextSessionRaw(nextSession)
+                let scheduleIdx = sessionList.firstIndex(where: { $0 == nextSession })!
+                let schedule = scheduleList[scheduleIdx]
+                if (schedule.scheduled) { return schedule.type }
+            }
         }
         
-        mealTitleLabel.text = "\(nextTypeSession!)".capitalized
-        Settings.currentSession = nextTypeSession
+        return nil
     }
     
-    func updateRespond(type: MealType, response: Response?)
+    func isTodayComplete() -> Bool
     {
-        var detailString = "Waiting"
+        let todaySchedule = Settings.mealDataCollection
+        let todaySchedules = [todaySchedule.breakfastData, todaySchedule.lunchData, todaySchedule.dinnerData]
         
-        if (response != nil)
-            { detailString = response!.skip ? "Skipped" : response!.date.toString("hh:mm aa") }
+        let todayLastMealResponse = todayMajorMealResponse.max(by: { $0.type.rawValue < $1.type.rawValue })
         
-        if (type == .breakfast)
-            { self.breakfastDetailView.detail = detailString }
-        if (type == .lunch)
-            { self.lunchDetailView.detail = detailString }
-        if (type == .dinner)
-            { self.dinnerDetailView.detail = detailString }
+        if (todaySchedules.contains(where: { $0.scheduled }))
+        {
+            var nextSession = todayLastMealResponse?.type
+            while (nextSession != .dinner)
+            {
+                nextSession = nextSessionRaw(nextSession)
+                let schedule = todaySchedules.first(where: { $0.type == nextSession })!
+                if (schedule.scheduled) { return false }
+            }
+        }
+        
+        return true
+    }
+    
+    func nextSessionRaw(_ session: MealType?) -> MealType
+    {
+        if (session != nil)
+        {
+            if (session == .breakfast)  { return .lunch }
+            if (session == .lunch)      { return .dinner }
+            if (session == .dinner)     { return .breakfast }
+        }
+        return .breakfast
+    }
+    
+    func updateViewOnSession(newSession: MealType, newState: State)
+    {
+        if (session != newSession)
+        {
+            mealTitleLabel.text = "\(newSession)".capitalized
+            if (newSession == .breakfast)  { imageView.image = UIImage(named: "morning") }
+            if (newSession == .lunch)      { imageView.image = UIImage(named: "day") }
+            if (newSession == .dinner)     { imageView.image = UIImage(named: "night") }
+        }
+        
+        if (state != newState)
+        {
+            var enableResponse = false
+            if (newState == .lateToday)
+            {
+                timerDescLabel.text = "You were late for:"
+                enableResponse = true
+            }
+            else if (newState == .goingToday)
+            {
+                timerDescLabel.text = "Will be going in:"
+                enableResponse = true
+            }
+            else if (newState == .goingTomorrow)
+            {
+                timerDescLabel.text = "Will be going in:"
+                bottomAlertLabel.text = "Thank your response! Please come back again tomorrow"
+                enableResponse = false
+            }
+            else if (newState == .noSchedule)
+            {
+                timerDescLabel.text = "Unknown time left:"
+                bottomAlertLabel.text = "You have not set up any schedule. Go to schedule tab and set some"
+                enableResponse = false
+            }
+            sessionDoneView.isHidden = enableResponse
+            skipMealButton.isHidden = !enableResponse
+            takingMealButton.isHidden = !enableResponse
+        }
+        
+        state = newState
+        session = newSession
     }
     
     @objc func counter()
     {
-        let date = Date()
-        let calendar = Calendar.current
-        let hour: TimeInterval = TimeInterval(calendar.component(.hour, from: date))
-        let minutes: TimeInterval = TimeInterval(calendar.component(.minute, from: date))
+        let todaySchedule = Settings.mealDataCollection
+        let todaySchedules = [todaySchedule.breakfastData, todaySchedule.lunchData, todaySchedule.dinnerData]
         
-        // this is barbaric!
-        scheduleIssue.detail = "\(issueCountTotalSparta())"
+        let upcomingSchedule = Settings.upcomingSchedule
+        let upcomingSchedules = [upcomingSchedule.breakfastData, upcomingSchedule.lunchData, upcomingSchedule.dinnerData]
         
-        let now = hour * 60 * 60 + minutes * 60
-        var counter: TimeInterval!
+        var currSession = session!
+        var currState: State!
         
-        let collection = Settings.mealDataCollection
-        let session = Settings.currentSession
+        let views = [breakfastDetailView, lunchDetailView, dinnerDetailView]
         
-        var myData: MealData!
-        if (session == .breakfast) { myData = collection.breakfastData }
-        if (session == .lunch)     { myData = collection.lunchData }
-        if (session == .dinner)    { myData = collection.dinnerData }
+        var counter: TimeInterval = 0
         
-        // upcming next day
-        if (session == .breakfast && Settings.responses.last?.type == .dinner)
+        let issueCount =
+            todaySchedule.breakfastData.issues.count +
+            todaySchedule.lunchData.issues.count +
+            todaySchedule.dinnerData.issues.count
+        
+        scheduleIssue.detail = issueCount == 0 ? "None" : "\(issueCount)"
+        
+        let now = Date.now
+        let hour = Calendar.current.component(.hour, from: now)
+        let minute = Calendar.current.component(.minute, from: now)
+        let nowTimeInterval = TimeInterval(hour * 60 * 60 + minute * 60)
+        
+        let todayLastMealResponse = todayMajorMealResponse.max(by: { $0.type.rawValue < $1.type.rawValue })
+        
+        if (isTodayComplete())
         {
-            timerDescLabel.text = "Will be going in:"
-            counter = now.rangeCappedDaily(to: collection.breakfastData.time)
+            let nextSchedule = upcomingSchedules.first(where: { $0.scheduled })
+            if (nextSchedule == nil)
+            {
+                currState = .noSchedule
+                counter = 0
+            }
+            else
+            {
+                currSession = nextSchedule!.type
+                currState = .goingTomorrow
+                counter = (nextSchedule!.time + 24 * 60 * 60) - nowTimeInterval
+            }
         }
-        // upcoming meal
-        else if (now < myData.time)
-        {
-            timerDescLabel.text = "Will be going in:"
-            counter = myData.time - now
-        }
-        // late for meal
         else
         {
-            timerDescLabel.text = "You were late for:"
-            counter = now - myData.time
+            var nextSession = currSession
+            
+            if (todayLastMealResponse != nil && todayLastMealResponse!.type.rawValue >= currSession.rawValue)
+            {
+                nextSession = whatNextSession(currSession, schedule: todaySchedule)!
+            }
+            
+            let nextMeal = todaySchedules.first(where: { $0.type == nextSession })!
+            currSession = nextMeal.type
+            
+            if (nowTimeInterval > nextMeal.time)
+            {
+                currState = .lateToday
+                counter = nowTimeInterval - nextMeal.time
+            }
+            else
+            {
+                currState = .goingToday
+                counter = nextMeal.time - nowTimeInterval
+            }
         }
-        timerHourLabel.text = counter.toString("HH")
-        timerMinuteLabel.text = counter.toString("mm")
+        
+        // update today's respond
+        views.enumerated().forEach({
+            
+            let data = todaySchedules[$0.offset]
+            let todayResponse = todayMajorMealResponse.first(where: { $0.type == data.type })
+            
+            if (todayResponse != nil && todayResponse!.skip == false)
+            {
+                $0.element?.detail = todayResponse!.date.toString("hh:mm aa")
+            }
+            else if (todayLastMealResponse != nil && todayLastMealResponse!.type.rawValue > data.type.rawValue)
+            {
+                $0.element?.detail = "Not Scheduled"
+            }
+            else if (todayResponse == nil && data.scheduled)
+            {
+                $0.element?.detail = "Waiting"
+            }
+            else if (todayResponse != nil && todayResponse!.skip)
+            {
+                $0.element?.detail = "Skipped"
+            }
+            // this should be last in conditional, if user already responded and then the schedule is set to disable
+            // it should show the "respond" (time / skipped) instead of "not scheduled"
+            else if (todayResponse == nil && data.scheduled == false)
+            {
+                $0.element?.detail = "Not Scheduled"
+            }
+            
+        })
+        
+        timerHourLabel.text = String(format: "%02d", Int(counter) / 3600)
+        timerMinuteLabel.text = String(format: "%02d", Int(counter) % 3600 / 60)
         timerSeperatorLabel.isHidden = !timerSeperatorLabel.isHidden
+        
+        updateViewOnSession(newSession: currSession, newState: currState)
     }
     
 }

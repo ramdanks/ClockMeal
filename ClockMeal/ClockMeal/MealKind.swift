@@ -22,19 +22,21 @@ extension TimeInterval
     }
 }
 
-enum MealType: Codable, CaseIterable
+enum MealType: Int, Codable, CaseIterable
 {
-    case breakfast
-    case lunch
-    case dinner
-    case snack
+    case snack     = 0
+    case breakfast = 1
+    case lunch     = 2
+    case dinner    = 3
 }
 
 struct MealData: Codable
 {
     var type: MealType
     var time: TimeInterval
-    var skipped: Bool
+    var scheduled: Bool
+    var issues: [MealRules.Issue]
+    var date: Date
 }
 
 struct MealCollection: Codable
@@ -48,7 +50,7 @@ typealias MealSelection = (type: MealType, collection: MealCollection)
 
 class MealRules
 {
-    typealias IntervalProblem = (prev: Bool, next: Bool)
+    enum Issue: Codable, CaseIterable { case skipSchedule, previousMeal, nextMeal }
     
     static let shortestIntervalToBreakfast: TimeInterval = 07 * 60 * 60
     static let longestIntervalToBreakfast: TimeInterval  = 14 * 60 * 60
@@ -57,18 +59,29 @@ class MealRules
     static let shortestIntervalToDinner: TimeInterval    = 05 * 60 * 60
     static let longestIntervalToDinner: TimeInterval     = 07 * 60 * 60
     
-    static func issue(collection: MealCollection, forType: MealType, forTime: TimeInterval) -> IntervalProblem
+    static func issues(collection: MealCollection, forType: MealType) -> [Issue]
+    {
+        var time: TimeInterval!
+        if (forType == .breakfast) { time = collection.breakfastData.time }
+        if (forType == .lunch) { time = collection.lunchData.time }
+        if (forType == .dinner) { time = collection.dinnerData.time }
+        return issues(collection: collection, forType: forType, forTime: time)
+    }
+    
+    static func issues(collection: MealCollection, forType: MealType, forTime: TimeInterval) -> [Issue]
     {
         var prevScheduleLongest: TimeInterval!
         var prevScheduleShortest: TimeInterval!
         var nextScheduleLongest: TimeInterval!
         var nextScheduleShortest: TimeInterval!
         
+        var currSchedule: MealData!
         var prevSchedule: MealData!
         var nextSchedule: MealData!
         
         if (forType == .breakfast)
         {
+            currSchedule = collection.breakfastData
             prevSchedule = collection.dinnerData
             nextSchedule = collection.lunchData
             prevScheduleLongest = MealRules.longestIntervalToBreakfast
@@ -78,6 +91,7 @@ class MealRules
         }
         else if (forType == .lunch)
         {
+            currSchedule = collection.lunchData
             prevSchedule = collection.breakfastData
             nextSchedule = collection.dinnerData
             prevScheduleLongest = MealRules.longestIntervalToLunch
@@ -87,6 +101,7 @@ class MealRules
         }
         else if (forType == .dinner)
         {
+            currSchedule = collection.dinnerData
             prevSchedule = collection.lunchData
             nextSchedule = collection.breakfastData
             prevScheduleLongest = MealRules.longestIntervalToDinner
@@ -98,28 +113,14 @@ class MealRules
         let rangeFromPrev = prevSchedule.time.rangeCappedDaily(to: forTime)
         let rangeToNext = forTime.rangeCappedDaily(to: nextSchedule.time)
         
-        let prevProblem = rangeFromPrev > prevScheduleLongest || rangeFromPrev < prevScheduleShortest
-        let nextProblem = rangeToNext > nextScheduleLongest || rangeToNext < nextScheduleShortest
-        
-        return (prevProblem, nextProblem)
+        var problems: [Issue] = []
+        for problem in Issue.allCases
+        {
+            if (problem == .skipSchedule && currSchedule.scheduled) { continue }
+            if (problem == .previousMeal && rangeFromPrev <= prevScheduleLongest && rangeFromPrev >= prevScheduleShortest) { continue }
+            if (problem == .nextMeal && rangeToNext <= nextScheduleLongest && rangeToNext >= nextScheduleShortest) { continue }
+            problems.append(problem)
+        }
+        return problems
     }
-    
-    static func issueCount(data: MealData, collection: MealCollection) -> Int
-    {
-        var count: Int = 0
-        if (data.skipped) { count += 1 }
-        let timingIssue = issue(collection: collection, forType: data.type, forTime: data.time)
-        if (timingIssue.prev) { count += 1 }
-        if (timingIssue.next ) { count += 1 }
-        return count
-    }
-}
-
-func issueCountTotalSparta() -> Int
-{
-    let collection = Settings.mealDataCollection
-    let a = MealRules.issueCount(data: collection.breakfastData, collection: collection)
-    let b = MealRules.issueCount(data: collection.lunchData, collection: collection)
-    let c = MealRules.issueCount(data: collection.dinnerData, collection: collection)
-    return a + b + c
 }

@@ -35,6 +35,9 @@
 		3FA605E1281A92A900CBF991 /* TimePickerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3FA605E0281A92A900CBF991 /* TimePickerView.xib */; };
 		3FA605E3281A92B100CBF991 /* TimePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FA605E2281A92B100CBF991 /* TimePickerView.swift */; };
 		3FA605E7281ABFCB00CBF991 /* Gradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FA605E6281ABFCB00CBF991 /* Gradient.swift */; };
+		3FC0643A281E833A008FDEC7 /* MyDatePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FC06439281E833A008FDEC7 /* MyDatePicker.swift */; };
+		3FF8FB74281DB37C006394C9 /* MealRecordCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3FF8FB73281DB37C006394C9 /* MealRecordCell.xib */; };
+		3FF8FB76281DB3AC006394C9 /* MealRecordCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF8FB75281DB3AC006394C9 /* MealRecordCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -68,6 +71,9 @@
 		3FA605E0281A92A900CBF991 /* TimePickerView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TimePickerView.xib; sourceTree = "<group>"; };
 		3FA605E2281A92B100CBF991 /* TimePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimePickerView.swift; sourceTree = "<group>"; };
 		3FA605E6281ABFCB00CBF991 /* Gradient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gradient.swift; sourceTree = "<group>"; };
+		3FC06439281E833A008FDEC7 /* MyDatePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyDatePicker.swift; sourceTree = "<group>"; };
+		3FF8FB73281DB37C006394C9 /* MealRecordCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MealRecordCell.xib; sourceTree = "<group>"; };
+		3FF8FB75281DB3AC006394C9 /* MealRecordCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealRecordCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -129,6 +135,9 @@
 				3F39357C281A7D1D00981A47 /* RichRowIndicatorView.xib */,
 				3F39357A281A7D1100981A47 /* RichRowIndicatorView.swift */,
 				3FA605E6281ABFCB00CBF991 /* Gradient.swift */,
+				3FF8FB73281DB37C006394C9 /* MealRecordCell.xib */,
+				3FF8FB75281DB3AC006394C9 /* MealRecordCell.swift */,
+				3FC06439281E833A008FDEC7 /* MyDatePicker.swift */,
 			);
 			path = ClockMeal;
 			sourceTree = "<group>";
@@ -194,6 +203,7 @@
 				3F6F49FB281AD1040038AF82 /* RichRowSwitchControl.xib in Resources */,
 				3F8435B7281668ED00BCB8EE /* LaunchScreen.storyboard in Resources */,
 				3F8435C5281A226500BCB8EE /* RichRowControl.xib in Resources */,
+				3FF8FB74281DB37C006394C9 /* MealRecordCell.xib in Resources */,
 				3F8435CB281A299900BCB8EE /* RichRowDetailView.xib in Resources */,
 				3F8435D9281A472500BCB8EE /* ScheduleCardControl.xib in Resources */,
 				3F8435B4281668ED00BCB8EE /* Assets.xcassets in Resources */,
@@ -226,9 +236,11 @@
 				3F8435C7281A261600BCB8EE /* RichRowControl.swift in Sources */,
 				3F8435CD281A2F0600BCB8EE /* HomeViewController.swift in Sources */,
 				3F8435AD281668EC00BCB8EE /* SceneDelegate.swift in Sources */,
+				3FF8FB76281DB3AC006394C9 /* MealRecordCell.swift in Sources */,
 				3F9C7D77281A6523007C33E4 /* InfoCardView.swift in Sources */,
 				3F8435CF281A2F3900BCB8EE /* SnacksViewController.swift in Sources */,
 				3F50CFDB281ADCFD00787A59 /* Settings.swift in Sources */,
+				3FC0643A281E833A008FDEC7 /* MyDatePicker.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

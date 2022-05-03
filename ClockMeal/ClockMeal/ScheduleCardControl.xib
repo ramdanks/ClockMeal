@@ -85,7 +85,7 @@
     <resources>
         <image name="alarm.fill" catalog="system" width="124" height="128"/>
         <image name="exclamationmark.square.fill" catalog="system" width="128" height="114"/>
-        <image name="lunch" width="5503" height="3745"/>
+        <image name="lunch" width="1024" height="683"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

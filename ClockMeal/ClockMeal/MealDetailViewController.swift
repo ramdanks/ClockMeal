@@ -28,35 +28,32 @@ class MealDetailViewController: UIViewController, TimePickerViewDelegate
     }()
     
     var type: MealType?
-    
-    var collection: MealCollection?
-    
     var imageShowcase: UIImage?
+    var collection: MealCollection!
     
     private var currentData: MealData?
     
     override func viewDidLoad()
     {
         super.viewDidLoad()
+        
         contentChanged()
         timePickerView.delegate = self
         darkenView.frame = self.view.frame
         timePickerView.center = self.view.center
+        
         // set initial goals indicator
-        let timingIssue = MealRules.issue(collection: collection!, forType: type!, forTime: currentData!.time)
-        setIndicatorState(goalsView1, good: timingIssue.prev == false)
-        setIndicatorState(goalsView2, good: timingIssue.next == false)
-        setIndicatorState(goalsView0, good: currentData?.skipped == false)
+        setIndicatorState(goalsView1, good: currentData!.issues.contains(.previousMeal) == false)
+        setIndicatorState(goalsView2, good: currentData!.issues.contains(.nextMeal) == false)
+        setIndicatorState(goalsView0, good: currentData!.scheduled)
     }
     
     override func viewWillDisappear(_ animated: Bool)
     {
         // refresh collection data for unwind segue to ScheduleViewController
-        if (currentData?.type == .breakfast) { collection?.breakfastData = currentData! }
-        if (currentData?.type == .lunch)     { collection?.lunchData = currentData! }
-        if (currentData?.type == .dinner)    { collection?.dinnerData = currentData! }
-        // save user defaults
-        Settings.mealDataCollection = collection!
+        if (currentData?.type == .breakfast) { collection.breakfastData = currentData! }
+        if (currentData?.type == .lunch)     { collection.lunchData = currentData! }
+        if (currentData?.type == .dinner)    { collection.dinnerData = currentData! }
         // start dismissing
         super.viewWillDisappear(animated)
         performSegue(withIdentifier: "unwindSegue", sender: self)
@@ -64,7 +61,7 @@ class MealDetailViewController: UIViewController, TimePickerViewDelegate
     
     @IBAction func onHavingMealSwitch(_ sender: RichRowSwitchControl)
     {
-        currentData?.skipped = sender.rightSwitch.isOn == false
+        currentData?.scheduled = sender.rightSwitch.isOn
         setIndicatorState(goalsView0, good: sender.rightSwitch.isOn)
     }
     
@@ -83,15 +80,15 @@ class MealDetailViewController: UIViewController, TimePickerViewDelegate
         displayTimePicker(false)
     }
     
-    func onConfirmEditing(_ date: Date)
+    func onConfirmEditing(_ date: Date, issues: [MealRules.Issue])
     {
         timeScheduleControl.detail = date.toString("hh:mm aa")
+        self.currentData?.issues = issues
         self.currentData?.time = date.toDailyTimeInterval()
         self.collection = timePickerView.data.collection
         // refresh on timing goals
-        let timingIssue = MealRules.issue(collection: collection!, forType: type!, forTime: currentData!.time)
-        setIndicatorState(goalsView1, good: timingIssue.prev == false)
-        setIndicatorState(goalsView2, good: timingIssue.next == false)
+        setIndicatorState(goalsView1, good: issues.contains(.previousMeal) == false)
+        setIndicatorState(goalsView2, good: issues.contains(.nextMeal) == false)
         // dismiss time picker
         displayTimePicker(false)
     }
@@ -106,29 +103,29 @@ class MealDetailViewController: UIViewController, TimePickerViewDelegate
     {
         if (type == .breakfast)
         {
-            currentData = collection?.breakfastData
+            currentData = collection.breakfastData
             goalsView1.title = "Good Interval to Dinner"
             goalsView2.title = "Good Interval to Lunch"
             descriptionLabel.text = "Carbohydrates and protein are essential for breakfast. Make sure to eat just enough so your body doesn't get heavy during the day."
         }
         if (type == .lunch)
         {
-            currentData = collection?.lunchData
+            currentData = collection.lunchData
             goalsView1.title = "Good Interval to Breakfast"
             goalsView2.title = "Good Interval to Dinner"
             descriptionLabel.text = "When taking a lunch, make sure to have a good mix of all the good groups that provide macro and micronutrients."
         }
         if (type == .dinner)
         {
-            currentData = collection?.dinnerData
+            currentData = collection.dinnerData
             goalsView1.title = "Good Interval to Lunch"
             goalsView2.title = "Good Interval to Breakfast"
             descriptionLabel.text = "Your dinner could be the same as lunch or something different but lesser than lunch. Don't forget macro and micronutrients."
         }
         imageView.image = imageShowcase
         titleLabel?.text = "\(currentData!.type)".capitalized
-        planHavingSwitch?.rightSwitch.isOn = currentData?.skipped == false
-        timeScheduleControl?.detail = currentData?.time.toString("hh:mm aa")
+        planHavingSwitch?.rightSwitch.isOn = currentData!.scheduled
+        timeScheduleControl?.detail = currentData!.time.toString("hh:mm aa")
     }
     
     func displayTimePicker(_ display: Bool)

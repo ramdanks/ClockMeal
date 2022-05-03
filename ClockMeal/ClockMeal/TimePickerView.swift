@@ -30,7 +30,7 @@ extension Date
 protocol TimePickerViewDelegate: AnyObject
 {
     func onCancelEditing()
-    func onConfirmEditing(_ date: Date)
+    func onConfirmEditing(_ date: Date, issues: [MealRules.Issue])
 }
 
 @IBDesignable
@@ -65,6 +65,8 @@ class TimePickerView: UIView
         timeLabel.text = dateString
         updateGoalsView()
     }}
+    
+    private var issues: [MealRules.Issue]!
     
     @IBOutlet weak var timeLabel: UILabel!
     
@@ -103,7 +105,7 @@ class TimePickerView: UIView
     
     @IBAction func onConfirmButton(_ sender: UIButton)
     {
-        delegate?.onConfirmEditing(datePicker.date)
+        delegate?.onConfirmEditing(datePicker.date, issues: issues)
     }
     
     @IBAction func onCancelButton(_ sender: UIButton)
@@ -119,16 +121,19 @@ class TimePickerView: UIView
     
     func updateGoalsView()
     {
-        let timingIssue = MealRules.issue(
+        issues = MealRules.issues(
             collection: data.collection,
             forType: data.type,
             forTime: datePicker.date.toDailyTimeInterval()
         )
         
-        goalsView0.rightImageView.tintColor = timingIssue.prev ? .systemRed : .systemGreen
-        goalsView0.indicator = UIImage(systemName: timingIssue.prev ? "exclamationmark.square.fill" : "checkmark.square.fill")
+        let prevIssue = issues.contains(.previousMeal)
+        let nextIssue = issues.contains(.nextMeal)
         
-        goalsView1.rightImageView.tintColor = timingIssue.next ? .systemRed : .systemGreen
-        goalsView1.indicator = UIImage(systemName: timingIssue.next ? "exclamationmark.square.fill" : "checkmark.square.fill")
+        goalsView0.rightImageView.tintColor = prevIssue ? .systemRed : .systemGreen
+        goalsView0.indicator = UIImage(systemName: prevIssue ? "exclamationmark.square.fill" : "checkmark.square.fill")
+        
+        goalsView1.rightImageView.tintColor = nextIssue ? .systemRed : .systemGreen
+        goalsView1.indicator = UIImage(systemName: nextIssue ? "exclamationmark.square.fill" : "checkmark.square.fill")
     }
 }
