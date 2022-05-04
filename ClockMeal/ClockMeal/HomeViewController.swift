@@ -35,34 +35,23 @@ class HomeViewController: UIViewController
         timerHourLabel.font = UIFont.monospacedDigitSystemFont(ofSize: 62.0, weight: .regular)
         timerMinuteLabel.font = UIFont.monospacedDigitSystemFont(ofSize: 62.0, weight: .regular)
         
-        let date = Date()
-        
-        var currSession: MealType? = nil
-        
         if (Calendar.current.isDateInToday(Settings.lastLogin))
         {
             let responses = Settings.responses
             // update today's session
             for response in responses.reversed()
             {
-                if (Calendar.current.isDate(date, inSameDayAs: response.date) == false) { break }
+                if (Calendar.current.isDateInToday(response.date) == false) { break }
                 if (response.type != .snack) { todayMajorMealResponse.append(response) }
             }
-            // find meal session based on last responses
-            let lastMealSession = todayMajorMealResponse.max(by: { $0.type.rawValue > $1.type.rawValue })?.type
-            currSession = whatNextSession(lastMealSession, schedule: Settings.mealDataCollection)
         }
         else
         {
             Settings.lastLogin = Date.now
-            let schedule = Settings.upcomingSchedule
-            let scheduleList = [schedule.breakfastData, schedule.lunchData, schedule.dinnerData]
-            
-            Settings.mealDataCollection = schedule
-            currSession = scheduleList.first(where: { $0.scheduled })?.type ?? .breakfast
+            Settings.mealDataCollection = Settings.upcomingSchedule
         }
         
-        updateViewOnSession(newSession: currSession!, newState: .goingToday)
+        updateStateSessionCounter()
         
         Timer.scheduledTimer(
             timeInterval: 0.5,
@@ -243,61 +232,38 @@ class HomeViewController: UIViewController
         session = newSession
     }
     
-    @objc func counter()
+    private func updateStateSessionCounter() -> Void
     {
-        let todaySchedule = Settings.mealDataCollection
-        let todaySchedules = [todaySchedule.breakfastData, todaySchedule.lunchData, todaySchedule.dinnerData]
-        
-        let upcomingSchedule = Settings.upcomingSchedule
-        let upcomingSchedules = [upcomingSchedule.breakfastData, upcomingSchedule.lunchData, upcomingSchedule.dinnerData]
-        
-        var currSession = session!
-        var currState: State!
-        
-        let views = [breakfastDetailView, lunchDetailView, dinnerDetailView]
-        
-        var counter: TimeInterval = 0
-        
-        let issueCount =
-            todaySchedule.breakfastData.issues.count +
-            todaySchedule.lunchData.issues.count +
-            todaySchedule.dinnerData.issues.count
-        
-        scheduleIssue.detail = issueCount == 0 ? "None" : "\(issueCount)"
-        
         let now = Date.now
         let hour = Calendar.current.component(.hour, from: now)
         let minute = Calendar.current.component(.minute, from: now)
         let nowTimeInterval = TimeInterval(hour * 60 * 60 + minute * 60)
         
-        let todayLastMealResponse = todayMajorMealResponse.max(by: { $0.type.rawValue < $1.type.rawValue })
-        
+        var counter: TimeInterval = 0
+        // find next meal session
         if (isTodayComplete())
         {
-            let nextSchedule = upcomingSchedules.first(where: { $0.scheduled })
-            if (nextSchedule == nil)
-            {
-                currState = .noSchedule
-                counter = 0
-            }
-            else
-            {
-                currSession = nextSchedule!.type
-                currState = .goingTomorrow
-                counter = (nextSchedule!.time + 24 * 60 * 60) - nowTimeInterval
-            }
+            let upcomingSchedule        = Settings.upcomingSchedule
+            let upcomingSchedules       = [upcomingSchedule.breakfastData, upcomingSchedule.lunchData, upcomingSchedule.dinnerData]
+            let nextFirstSchedule       = upcomingSchedules.first(where: { $0.scheduled })
+            let currState: State        = nextFirstSchedule == nil ? .noSchedule : .goingTomorrow
+            let currSession: MealType   = nextFirstSchedule?.type ?? .breakfast
+            
+            counter = nextFirstSchedule == nil ? 0 : (nextFirstSchedule!.time + 24 * 60 * 60) - nowTimeInterval
+        
+            updateViewOnSession(newSession: currSession, newState: currState)
         }
         else
         {
-            var nextSession = currSession
-            
-            if (todayLastMealResponse != nil && todayLastMealResponse!.type.rawValue >= currSession.rawValue)
-            {
-                nextSession = whatNextSession(currSession, schedule: todaySchedule)!
-            }
-            
-            let nextMeal = todaySchedules.first(where: { $0.type == nextSession })!
-            currSession = nextMeal.type
+            let todayLastMealResponse   = todayMajorMealResponse.max(by: { $0.type.rawValue < $1.type.rawValue })
+            let todaySchedule           = Settings.mealDataCollection
+            let todaySchedules          = [todaySchedule.breakfastData, todaySchedule.lunchData, todaySchedule.dinnerData]
+            var currSession: MealType   = todayLastMealResponse?.type ?? .breakfast
+            var currState: State        = .goingToday
+            let nextSession: MealType   = todayLastMealResponse == nil ?
+                todaySchedules.first(where: { $0.scheduled })?.type ?? .breakfast :
+                whatNextSession(currSession, schedule: Settings.mealDataCollection)!
+            let nextMeal                = todaySchedules.first(where: { $0.type == nextSession })!
             
             if (nowTimeInterval > nextMeal.time)
             {
@@ -309,8 +275,30 @@ class HomeViewController: UIViewController
                 currState = .goingToday
                 counter = nextMeal.time - nowTimeInterval
             }
+            
+            currSession = nextMeal.type
+            updateViewOnSession(newSession: currSession, newState: currState)
         }
         
+        timerHourLabel.text = String(format: "%02d", Int(counter) / 3600)
+        timerMinuteLabel.text = String(format: "%02d", Int(counter) % 3600 / 60)
+    }
+    
+    @objc func counter()
+    {
+        let todaySchedule = Settings.mealDataCollection
+        let todaySchedules = [todaySchedule.breakfastData, todaySchedule.lunchData, todaySchedule.dinnerData]
+
+        let issueCount =
+            todaySchedule.breakfastData.issues.count +
+            todaySchedule.lunchData.issues.count +
+            todaySchedule.dinnerData.issues.count
+        
+        scheduleIssue.detail = issueCount == 0 ? "None" : "\(issueCount)"
+        
+        let todayLastMealResponse = todayMajorMealResponse.max(by: { $0.type.rawValue < $1.type.rawValue })
+        
+        let views = [breakfastDetailView, lunchDetailView, dinnerDetailView]
         // update today's respond
         views.enumerated().forEach({
             
@@ -342,11 +330,8 @@ class HomeViewController: UIViewController
             
         })
         
-        timerHourLabel.text = String(format: "%02d", Int(counter) / 3600)
-        timerMinuteLabel.text = String(format: "%02d", Int(counter) % 3600 / 60)
         timerSeperatorLabel.isHidden = !timerSeperatorLabel.isHidden
-        
-        updateViewOnSession(newSession: currSession, newState: currState)
+        updateStateSessionCounter()
     }
     
 }

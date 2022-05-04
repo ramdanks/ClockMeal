@@ -10,6 +10,7 @@ class ScheduleViewController: UIViewController
     @IBOutlet weak var dinnerCard: ScheduleCardControl!
     
     private var selectedCard: ScheduleCardControl!
+    var todayMajorMealResponse: [Response] = []
     
     private var mealCollection: MealCollection! { didSet {
         mealCollection.breakfastData.issues = MealRules.issues(collection: mealCollection, forType: .breakfast)
@@ -26,8 +27,31 @@ class ScheduleViewController: UIViewController
         mealCollection = Settings.mealDataCollection
     }
     
+    override func viewWillAppear(_ animated: Bool)
+    {
+        super.viewWillAppear(animated)
+        let homeVC = self.tabBarController?.viewControllers![0] as! HomeViewController
+        todayMajorMealResponse = homeVC.todayMajorMealResponse
+    }
+    
     @IBAction func onScheduleCardButton(_ sender: ScheduleCardControl)
     {
+        // check if session is already passed for today schedule
+        if (segmentedControl.selectedSegmentIndex == 0)
+        {
+            let todayLastMealResponse = todayMajorMealResponse.max(by: { $0.type.rawValue < $1.type.rawValue })?.type.rawValue ?? -1
+            if (todayLastMealResponse >= sender.data.type.rawValue)
+            {
+                let alert = UIAlertController(
+                    title: "Edit Schedeule",
+                    message: "You cannot edit today's schedule of this meal because you already passed this session",
+                    preferredStyle: .alert
+                )
+                alert.addAction(UIAlertAction(title: "Dismiss", style: .default))
+                present(alert, animated: true)
+                return
+            }
+        }
         selectedCard = sender
         performSegue(withIdentifier: SegueIdentifier.mealDetail, sender: self)
     }

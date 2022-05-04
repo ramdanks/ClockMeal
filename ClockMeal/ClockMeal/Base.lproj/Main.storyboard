@@ -229,7 +229,7 @@
                                         <integer key="value" value="1"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="string" keyPath="detail" value="None"/>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="title" value="Schedule Issue"/>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="title" value="Today Schedule Issue"/>
                                     <userDefinedRuntimeAttribute type="image" keyPath="logo" value="exclamationmark.triangle.fill" catalog="system"/>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
