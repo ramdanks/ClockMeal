@@ -28,14 +28,16 @@
                         <color key="textColor" systemColor="systemGrayColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ZlT-fV-yWo">
-                        <rect key="frame" x="16" y="9.5" width="25" height="25"/>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="questionmark.app.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="ZlT-fV-yWo">
+                        <rect key="frame" x="16" y="10.5" width="25" height="22.5"/>
+                        <color key="tintColor" systemColor="labelColor"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="25" id="2Pd-k5-zYX"/>
                             <constraint firstAttribute="width" constant="25" id="MrU-JJ-hQA"/>
                         </constraints>
                     </imageView>
                 </subviews>
+                <color key="backgroundColor" systemColor="secondarySystemBackgroundColor"/>
                 <constraints>
                     <constraint firstItem="RZn-01-TJi" firstAttribute="leading" secondItem="ZlT-fV-yWo" secondAttribute="trailing" constant="12" id="C8a-YH-FRv"/>
                     <constraint firstAttribute="trailing" secondItem="LrU-jq-3Oi" secondAttribute="trailing" constant="16" id="Hmn-FE-FYY"/>
@@ -54,6 +56,13 @@
         </tableViewCell>
     </objects>
     <resources>
+        <image name="questionmark.app.fill" catalog="system" width="128" height="114"/>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="secondarySystemBackgroundColor">
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="systemGrayColor">
             <color red="0.55686274509803924" green="0.55686274509803924" blue="0.57647058823529407" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>

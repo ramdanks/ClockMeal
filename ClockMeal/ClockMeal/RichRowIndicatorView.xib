@@ -21,7 +21,7 @@
             <subviews>
                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="location.circle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="cdb-bb-Fle">
                     <rect key="frame" x="16" y="11.5" width="22" height="21"/>
-                    <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <color key="tintColor" systemColor="labelColor"/>
                     <constraints>
                         <constraint firstAttribute="width" secondItem="cdb-bb-Fle" secondAttribute="height" multiplier="1:1" id="iTR-u8-xjt"/>
                         <constraint firstAttribute="height" constant="22" id="kJh-ag-w60"/>
@@ -42,7 +42,7 @@
                     </constraints>
                 </imageView>
             </subviews>
-            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <color key="backgroundColor" systemColor="secondarySystemBackgroundColor"/>
             <constraints>
                 <constraint firstItem="cdb-bb-Fle" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="0Va-rx-zHZ"/>
                 <constraint firstItem="bmq-u4-Sms" firstAttribute="leading" secondItem="cdb-bb-Fle" secondAttribute="trailing" constant="12" id="5Q4-Gi-RFz"/>
@@ -61,8 +61,11 @@
     <resources>
         <image name="checkmark.square.fill" catalog="system" width="128" height="114"/>
         <image name="location.circle.fill" catalog="system" width="128" height="121"/>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="secondarySystemBackgroundColor">
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemGrayColor">
             <color red="0.55686274509803924" green="0.55686274509803924" blue="0.57647058823529407" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

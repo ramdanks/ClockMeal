@@ -47,19 +47,18 @@ class RichRowControl: UIControl
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?)
     {
         UIView.transition(with: self, duration: 0.07, options: .transitionCrossDissolve, animations: {
-            self.view.backgroundColor = .black
-            self.layer.borderColor = UIColor.white.cgColor
+            self.view.backgroundColor = .label
             for view in self.view.subviews
             {
                 if let label = view as? UILabel
                 {
                     self.previousColors.append(label.textColor)
-                    label.textColor = .white
+                    label.textColor = .systemBackground
                 }
                 if let imview = view as? UIImageView
                 {
                     self.previousColors.append(imview.tintColor)
-                    imview.tintColor = .white
+                    imview.tintColor = .systemBackground
                 }
             }
         })
@@ -69,8 +68,7 @@ class RichRowControl: UIControl
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?)
     {
         UIView.transition(with: titleLabel, duration: 0.5, options: .transitionCrossDissolve, animations: {
-            self.view.backgroundColor = .white
-            self.layer.borderColor = UIColor.black.cgColor
+            self.view.backgroundColor = .secondarySystemBackground
             for (i, view) in self.view.subviews.enumerated()
             {
                 if let label = view as? UILabel         { label.textColor = self.previousColors[i] }

@@ -35,7 +35,7 @@ class HomeViewController: UIViewController
         timerHourLabel.font = UIFont.monospacedDigitSystemFont(ofSize: 62.0, weight: .regular)
         timerMinuteLabel.font = UIFont.monospacedDigitSystemFont(ofSize: 62.0, weight: .regular)
         
-        if (Calendar.current.isDateInToday(Settings.lastLogin))
+        if (Calendar.current.isDateInToday(Settings.lastLogin[0]))
         {
             let responses = Settings.responses
             // update today's session
@@ -47,7 +47,7 @@ class HomeViewController: UIViewController
         }
         else
         {
-            Settings.lastLogin = Date.now
+            Settings.lastLogin = [Date.now]
             Settings.mealDataCollection = Settings.upcomingSchedule
         }
         
@@ -309,10 +309,6 @@ class HomeViewController: UIViewController
             {
                 $0.element?.detail = todayResponse!.date.toString("hh:mm aa")
             }
-            else if (todayLastMealResponse != nil && todayLastMealResponse!.type.rawValue > data.type.rawValue)
-            {
-                $0.element?.detail = "Not Scheduled"
-            }
             else if (todayResponse == nil && data.scheduled)
             {
                 $0.element?.detail = "Waiting"
@@ -323,7 +319,7 @@ class HomeViewController: UIViewController
             }
             // this should be last in conditional, if user already responded and then the schedule is set to disable
             // it should show the "respond" (time / skipped) instead of "not scheduled"
-            else if (todayResponse == nil && data.scheduled == false)
+            else
             {
                 $0.element?.detail = "Not Scheduled"
             }

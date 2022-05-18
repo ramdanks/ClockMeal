@@ -27,46 +27,17 @@ extension Date
     }
 }
 
-protocol TimePickerViewDelegate: AnyObject
+@objc protocol TimePickerViewDelegate: AnyObject
 {
-    func onCancelEditing()
-    func onConfirmEditing(_ date: Date, issues: [MealRules.Issue])
+    func onCancelEditing(_ sender: TimePickerView)
+    func onDateChanged(_ sender: TimePickerView, date: Date)
+    func onConfirmEditing(_ sender: TimePickerView, date: Date)
 }
 
 @IBDesignable
 class TimePickerView: UIView
 {
-    weak var delegate: TimePickerViewDelegate?
-    
-    var data: MealSelection! { didSet {
-        var time: TimeInterval!
-        if (data.type == .breakfast)
-        {
-            time = data.collection.breakfastData.time
-            goalsView0.title = "Good Interval to Dinner"
-            goalsView1.title = "Good Interval to Lunch"
-        }
-        if (data.type == .lunch)
-        {
-            time = data.collection.lunchData.time
-            goalsView0.title = "Good Interval to Breakfast"
-            goalsView1.title = "Good Interval to Dinner"
-        }
-        if (data.type == .dinner)
-        {
-            time = data.collection.dinnerData.time
-            goalsView0.title = "Good Interval to Lunch"
-            goalsView1.title = "Good Interval to Breakfast"
-        }
-        let dateFormatter = DateFormatter()
-        let dateString = time.toString("hh:mm aa")
-        dateFormatter.dateFormat = "hh:mm aa"
-        datePicker.date = dateFormatter.date(from: dateString) ?? Date()
-        timeLabel.text = dateString
-        updateGoalsView()
-    }}
-    
-    private var issues: [MealRules.Issue]!
+    @IBOutlet weak var delegate: TimePickerViewDelegate?
     
     @IBOutlet weak var timeLabel: UILabel!
     
@@ -105,35 +76,16 @@ class TimePickerView: UIView
     
     @IBAction func onConfirmButton(_ sender: UIButton)
     {
-        delegate?.onConfirmEditing(datePicker.date, issues: issues)
+        delegate?.onConfirmEditing(self, date: datePicker.date)
     }
     
     @IBAction func onCancelButton(_ sender: UIButton)
     {
-        delegate?.onCancelEditing()
+        delegate?.onCancelEditing(self)
     }
     
     @IBAction func onTimePicker(_ sender: UIDatePicker)
     {
-        updateGoalsView()
-        timeLabel.text = sender.date.toString("hh:mm aa")
-    }
-    
-    func updateGoalsView()
-    {
-        issues = MealRules.issues(
-            collection: data.collection,
-            forType: data.type,
-            forTime: datePicker.date.toDailyTimeInterval()
-        )
-        
-        let prevIssue = issues.contains(.previousMeal)
-        let nextIssue = issues.contains(.nextMeal)
-        
-        goalsView0.rightImageView.tintColor = prevIssue ? .systemRed : .systemGreen
-        goalsView0.indicator = UIImage(systemName: prevIssue ? "exclamationmark.square.fill" : "checkmark.square.fill")
-        
-        goalsView1.rightImageView.tintColor = nextIssue ? .systemRed : .systemGreen
-        goalsView1.indicator = UIImage(systemName: nextIssue ? "exclamationmark.square.fill" : "checkmark.square.fill")
+        delegate?.onDateChanged(self, date: sender.date)
     }
 }

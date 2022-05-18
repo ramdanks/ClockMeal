@@ -88,6 +88,7 @@ class HistoryViewController: UIViewController
         
         tableView.reloadData()
         
+        
         if (dateRecords.isEmpty)
         {
             tableView.isHidden = true
@@ -197,7 +198,6 @@ extension HistoryViewController: UITableViewDataSource
         cell.titleLabel.text = "\(data.type)".capitalized
         cell.detailLabel.text = data.date.toString("hh:mm aa")
         cell.leftImageView.image = UIImage(systemName: imageName)
-        cell.leftImageView.tintColor = .black
         
         return cell
     }

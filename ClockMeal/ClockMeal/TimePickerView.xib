@@ -30,7 +30,7 @@
                     <color key="textColor" systemColor="systemGrayColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ljF-5t-mRa" customClass="RichRowIndicatorView" customModule="ClockMeal" customModuleProvider="target">
+                <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ljF-5t-mRa" customClass="RichRowIndicatorView" customModule="ClockMeal" customModuleProvider="target">
                     <rect key="frame" x="16" y="116" width="294" height="38"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     <constraints>
@@ -95,12 +95,12 @@
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dI9-lC-B7L" userLabel="Seperator">
                     <rect key="frame" x="0.0" y="170" width="326" height="1"/>
-                    <color key="backgroundColor" systemColor="systemGray4Color"/>
+                    <color key="backgroundColor" systemColor="quaternaryLabelColor"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="1" id="thf-e1-vF1"/>
                     </constraints>
                 </view>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lPx-Ij-d7t" customClass="RichRowIndicatorView" customModule="ClockMeal" customModuleProvider="target">
+                <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lPx-Ij-d7t" customClass="RichRowIndicatorView" customModule="ClockMeal" customModuleProvider="target">
                     <rect key="frame" x="15" y="66" width="296" height="38"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     <constraints>
@@ -154,6 +154,9 @@
         </view>
     </objects>
     <resources>
+        <systemColor name="quaternaryLabelColor">
+            <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.17999999999999999" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

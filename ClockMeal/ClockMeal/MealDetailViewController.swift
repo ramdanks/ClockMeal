@@ -51,9 +51,9 @@ class MealDetailViewController: UIViewController, TimePickerViewDelegate
     override func viewWillDisappear(_ animated: Bool)
     {
         // refresh collection data for unwind segue to ScheduleViewController
-        if (currentData?.type == .breakfast) { collection.breakfastData = currentData! }
-        if (currentData?.type == .lunch)     { collection.lunchData = currentData! }
-        if (currentData?.type == .dinner)    { collection.dinnerData = currentData! }
+        if (currentData?.type == .breakfast) { collection.breakfastData  = currentData! }
+        if (currentData?.type == .lunch)     { collection.lunchData      = currentData! }
+        if (currentData?.type == .dinner)    { collection.dinnerData     = currentData! }
         // start dismissing
         super.viewWillDisappear(animated)
         performSegue(withIdentifier: "unwindSegue", sender: self)
@@ -72,25 +72,67 @@ class MealDetailViewController: UIViewController, TimePickerViewDelegate
     
     @IBAction func onTimeScheduleRow(_ sender: RichRowControl)
     {
+        timePickerView.goalsView0.title = self.goalsView1.title
+        timePickerView.goalsView1.title = self.goalsView2.title
+        timePickerView.goalsView0.rightImageView.image = self.goalsView1.rightImageView.image
+        timePickerView.goalsView1.rightImageView.image = self.goalsView2.rightImageView.image
+        timePickerView.goalsView0.rightImageView.tintColor = self.goalsView1.rightImageView.tintColor
+        timePickerView.goalsView1.rightImageView.tintColor = self.goalsView2.rightImageView.tintColor
+        
+        let time = currentData?.time
+        let dateFormatter = DateFormatter()
+        let dateString = time?.toString("hh:mm aa") ?? "?"
+        dateFormatter.dateFormat = "hh:mm aa"
+        timePickerView.datePicker.date = dateFormatter.date(from: dateString) ?? Date()
+        timePickerView.timeLabel.text = dateString
+        
         displayTimePicker(true)
     }
     
-    func onCancelEditing()
+    func onCancelEditing(_ sender: TimePickerView)
     {
         displayTimePicker(false)
     }
     
-    func onConfirmEditing(_ date: Date, issues: [MealRules.Issue])
+    func onConfirmEditing(_ sender: TimePickerView, date: Date)
     {
         timeScheduleControl.detail = date.toString("hh:mm aa")
+        
+        let issues = MealRules.issues(
+            collection: collection,
+            forType: currentData!.type,
+            forTime: date.toDailyTimeInterval()
+        )
+        
         self.currentData?.issues = issues
         self.currentData?.time = date.toDailyTimeInterval()
-        self.collection = timePickerView.data.collection
+        
         // refresh on timing goals
         setIndicatorState(goalsView1, good: issues.contains(.previousMeal) == false)
         setIndicatorState(goalsView2, good: issues.contains(.nextMeal) == false)
+        
         // dismiss time picker
         displayTimePicker(false)
+    }
+    
+    func onDateChanged(_ sender: TimePickerView, date: Date)
+    {
+        sender.timeLabel.text = date.toString("hh:mm aa")
+        
+        let issues = MealRules.issues(
+            collection: collection,
+            forType: currentData!.type,
+            forTime: date.toDailyTimeInterval()
+        )
+        
+        let prevIssue = issues.contains(.previousMeal)
+        let nextIssue = issues.contains(.nextMeal)
+        
+        sender.goalsView0.rightImageView.tintColor = prevIssue ? .systemRed : .systemGreen
+        sender.goalsView0.indicator = UIImage(systemName: prevIssue ? "exclamationmark.square.fill" : "checkmark.square.fill")
+        
+        sender.goalsView1.rightImageView.tintColor = nextIssue ? .systemRed : .systemGreen
+        sender.goalsView1.indicator = UIImage(systemName: nextIssue ? "exclamationmark.square.fill" : "checkmark.square.fill")
     }
     
     func setIndicatorState(_ indicator: RichRowIndicatorView, good: Bool)
@@ -132,7 +174,6 @@ class MealDetailViewController: UIViewController, TimePickerViewDelegate
     {
         if (display)
         {
-            timePickerView.data = MealSelection(currentData!.type, collection!)
             UIView.transition(
                 with: self.view,
                 duration: 0.25,

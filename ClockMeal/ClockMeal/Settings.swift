@@ -9,18 +9,24 @@ struct UserDefault<T: Codable>
     {
         get
         {
-            if let data = UserDefaults.standard.object(forKey: key) as? Data,
-               let user = try? PropertyListDecoder().decode(T.self, from: data)
+            do
             {
+                guard let data = UserDefaults.standard.object(forKey: key) as? Data
+                else { return defaultValue }
+                let user = try PropertyListDecoder().decode(T.self, from: data)
                 return user
             }
+            catch { print("UserDefault get err: \(error)") }
             return defaultValue
         }
-        
         set
         {
-            if let encoded = try? PropertyListEncoder().encode(newValue)
-                { UserDefaults.standard.set(encoded, forKey: key) }
+            do
+            {
+                let encoded = try PropertyListEncoder().encode(newValue)
+                UserDefaults.standard.set(encoded, forKey: key)
+            }
+            catch { print("UserDefault set err: \(error)") }
         }
     }
 }
@@ -49,6 +55,6 @@ enum Settings
     @UserDefault<MealCollection>(key: "2", defaultValue: mealDataCollectionDefault)
     static var upcomingSchedule
     
-    @UserDefault<Date>(key: "3", defaultValue: Date())
+    @UserDefault<[Date]>(key: "3", defaultValue: [Date.distantPast])
     static var lastLogin
 }
